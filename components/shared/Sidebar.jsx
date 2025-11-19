@@ -4,6 +4,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -83,9 +84,9 @@ const Sidebar = () => {
             </ul>
           </SignedIn>
           <SignedOut>
-            <button className="py-4 px-6 flex justify-center gap-3 rounded-full p-16-semibold bg-purple-gradient bg-cover">
+            <Button className="py-4 px-6 flex justify-center gap-3 rounded-full p-16-semibold bg-purple-gradient bg-cover">
               <Link href="/sign-in">Login</Link>
-            </button>
+            </Button>
           </SignedOut>
         </nav>
       </div>
