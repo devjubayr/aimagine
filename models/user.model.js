@@ -25,7 +25,7 @@ const UserScheme = new mongoose.Schema({
     maxlength: 15,
   },
   photo: {
-    type: mongoose.SchemaTypes.Url,
+    type: String,
   },
   firstName: {
     type: String,
