@@ -1,3 +1,5 @@
+export const DB_NAME = "imaginify";
+
 export const navLinks = [
   {
     label: "Home",

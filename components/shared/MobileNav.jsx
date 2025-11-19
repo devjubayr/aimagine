@@ -1,6 +1,11 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { navLinks } from "@/constants";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
@@ -38,12 +43,14 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent className="sheet-content sm:w-64 bg-white p-5">
               <>
-                <Image
-                  src="/assets/images/logo-text.svg"
-                  alt="logo"
-                  width={152}
-                  height={23}
-                />
+                <SheetTitle>
+                  <Image
+                    src="/assets/images/logo-text.svg"
+                    alt="logo"
+                    width={152}
+                    height={23}
+                  />
+                </SheetTitle>
 
                 <ul className="header-nav_elements">
                   {navLinks.slice(0, 6).map((link) => {
