@@ -42,4 +42,4 @@ const ImageSchema = new mongoose.Schema(
 );
 
 export const ImageModel =
-  mongoose.models.Image || mongoose.model("Image", ImageSchema);
+  mongoose.models?.Image || mongoose.model("Image", ImageSchema);
