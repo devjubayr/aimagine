@@ -4,6 +4,7 @@ import { connectDB } from "@/lib/connectDB";
 import { ImageModel } from "@/models/image.model";
 import { UserModel } from "@/models/user.model";
 import { handleError } from "@/utils/handleError";
+import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/dist/server/api-utils";
 
@@ -82,6 +83,38 @@ export const getImageById = async ({ imageId }) => {
     if (!image) throw new Error("Image not found!");
 
     return JSON.parse(JSON.stringify(image));
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// Get images
+export const getallImages = async ({
+  limit = 9,
+  page = 1,
+  searchQuery = "",
+}) => {
+  try {
+    await connectDB();
+
+    cloudinary.config({
+      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: true,
+    });
+
+    let expression = "folder=imaginify";
+
+    if (searchQuery) {
+      expression += ` AND ${searchQuery}`;
+    }
+
+    const { resources } = await cloudinary.search
+      .expression(expression)
+      .execute();
+
+    const resourceIds = resources;
   } catch (error) {
     handleError(error);
   }
