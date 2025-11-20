@@ -3,7 +3,6 @@
 import { connectDB } from "@/lib/connectDB";
 import { UserModel } from "@/models/user.model";
 import { handleError } from "@/utils/handleError";
-import { User } from "lucide-react";
 import { revalidatePath } from "next/cache";
 
 export const createUser = async (user) => {
@@ -21,7 +20,7 @@ export const getUserById = async (userId) => {
   try {
     await connectDB();
 
-    const user = await UserModel.findOne({ clerkId: userid });
+    const user = await UserModel.findOne({ clerkId: userId });
 
     if (!user) throw new Error("User not found");
     return JSON.parse(JSON.stringify(user));
@@ -52,7 +51,7 @@ export const deleteUser = async (clerkId) => {
   try {
     await connectDB();
 
-    const userToDelete = await User.findOne({ clerkId });
+    const userToDelete = await UserModel.findOne({ clerkId });
 
     if (!userToDelete) throw new Error("User not found");
 
