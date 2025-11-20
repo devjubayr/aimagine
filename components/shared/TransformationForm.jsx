@@ -2,6 +2,8 @@
 
 import { z } from "zod";
 
+import { addImage, updateImage } from "@/actions/image.actions";
+import { updateCredits } from "@/actions/user.actions";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,6 +13,8 @@ import {
 } from "@/constants";
 import { deepMergeObjects } from "@/utils/deepMergeObejct";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { getCldImageUrl } from "next-cloudinary";
+import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
@@ -23,6 +27,7 @@ import {
 } from "../ui/select";
 import { CustomField } from "./CustomField";
 import MediaUploader from "./MediaUploader";
+import TransformedImage from "./TransformedImage";
 
 const formSchema = z.object({
   title: z.string(),
@@ -46,8 +51,9 @@ export default function TransformationForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
+  const router = useRouter();
 
-  const [isPending, startTransition] = useTransition();
+  const [_isPending, startTransition] = useTransition();
 
   const initialValues =
     data && action === "Update"
@@ -64,8 +70,70 @@ export default function TransformationForm({
     defaultValues: initialValues,
   });
 
-  function onSubmit(values) {
-    console.log(values);
+  async function onSubmit(values) {
+    setIsSubmitting(true);
+
+    if (data || image) {
+      const transformationUrl = getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId,
+        ...transformationConfig,
+      });
+
+      const imageData = {
+        title: values.title,
+        publicId: image?.publicId,
+        transformationType: type,
+        width: image?.width,
+        height: image?.height,
+        config: transformationConfig,
+        securedUrl: image?.secureURL,
+        transformationURL: transformationUrl,
+        aspectRatio: values.aspectRatio,
+        prompt: values.prompt,
+        color: values.color,
+      };
+
+      if (action === "Add") {
+        try {
+          const newImage = await addImage({
+            image: imageData,
+            userId,
+            path: "/",
+          });
+
+          if (newImage) {
+            form.reset();
+            setImage(data);
+            router.push(`/transformations/${newImage._id}`);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      if (action === "Update") {
+        try {
+          const updatedImage = await updateImage({
+            image: {
+              ...imageData,
+              _id: data._id,
+            },
+            userId,
+            path: `/transformations/${data._id}`,
+          });
+
+          if (updatedImage) {
+            router.push(`/transformations/${updatedImage._id}`);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+
+    setIsSubmitting(false);
   }
 
   const onSelectFieldHandler = (value, onChangeField) => {
@@ -100,14 +168,14 @@ export default function TransformationForm({
   const onTransformHandler = async () => {
     setIsTransforming(true);
 
-    setIsTransforming(
+    setTransformationConfig(
       deepMergeObjects(newTransformation, transformationConfig)
     );
 
     setNewTransformation(null);
 
     startTransition(async () => {
-      // await updateCredits(userId, creditAmount)
+      await updateCredits(userId, -1);
     });
   };
 
@@ -215,6 +283,15 @@ export default function TransformationForm({
               />
             )}
           />
+
+          <TransformedImage
+            image={image}
+            type={type}
+            title={form.getValues().title}
+            isTransforming={isTransforming}
+            setIsTransforming={setIsTransforming}
+            transformationConfig={transformationConfig}
+          />
         </div>
 
         <div className="flex flex-col gap-4">
@@ -224,14 +301,14 @@ export default function TransformationForm({
             disabled={isTransforming || newTransformation === null}
             onClick={onTransformHandler}
           >
-            {isTransforming ? "Transforming..." : "Apply transformation"}
+            {isTransforming ? "Transforming..." : "Apply Transformation"}
           </Button>
           <Button
-            type="Submit"
+            type="submit"
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            Submit
+            {isSubmitting ? "Submitting..." : "Save Image"}
           </Button>
         </div>
       </form>

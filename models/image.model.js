@@ -15,7 +15,7 @@ const ImageSchema = new mongoose.Schema(
       required: true,
     },
     securedUrl: {
-      type: URL,
+      type: String,
       required: true,
     },
     width: {
@@ -27,7 +27,7 @@ const ImageSchema = new mongoose.Schema(
     config: {
       type: Object,
     },
-    transformationUrl: { type: URL },
+    transformationUrl: { type: String },
     aspectRatio: { type: String },
     color: { type: String },
     prompt: {

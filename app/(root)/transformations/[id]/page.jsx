@@ -1,4 +1,4 @@
-const TransformationPage = ({ params: { id } }) => {
-  return <div>TransformationPage: {id} </div>;
+const TransformationPage = () => {
+  return <div>TransformationPage: </div>;
 };
 export default TransformationPage;
