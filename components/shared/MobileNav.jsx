@@ -59,7 +59,7 @@ const MobileNav = () => {
                       <li
                         key={link.route}
                         className={`flex whitespace-nowrap text-dark-700 ${
-                          isActive ? "gradient-text" : ""
+                          isActive ? "text-purple-700" : ""
                         }`}
                       >
                         <Link
