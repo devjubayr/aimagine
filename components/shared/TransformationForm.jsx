@@ -8,6 +8,7 @@ import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
   aspectRatioOptions,
+  creditFee,
   defaultValues,
   transformationTypes,
 } from "@/constants";
@@ -26,6 +27,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { CustomField } from "./CustomField";
+import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import MediaUploader from "./MediaUploader";
 import TransformedImage from "./TransformedImage";
 
@@ -175,13 +177,14 @@ export default function TransformationForm({
     setNewTransformation(null);
 
     startTransition(async () => {
-      await updateCredits(userId, -1);
+      await updateCredits(userId, creditFee);
     });
   };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
+        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField
           control={form.control}
           name="title"
