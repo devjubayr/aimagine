@@ -16,7 +16,7 @@ import { deepMergeObjects } from "@/utils/deepMergeObejct";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getCldImageUrl } from "next-cloudinary";
 import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import {
@@ -180,6 +180,12 @@ export default function TransformationForm({
       await updateCredits(userId, creditFee);
     });
   };
+
+  useEffect(() => {
+    if ((image && type === "restore") || type === "removeBackground") {
+      setNewTransformation(transformationType.config);
+    }
+  }, [image, transformationType.config, type]);
 
   return (
     <Form {...form}>
