@@ -8,6 +8,13 @@ import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/dist/server/api-utils";
 
+const populateUser = (query) =>
+  query.populate({
+    path: "author",
+    model: UserModel,
+    select: "_id firstName lastName",
+  });
+
 // Add image
 export const addImage = async ({ image, userId, path }) => {
   try {
@@ -33,7 +40,7 @@ export const updateImage = async ({ image, userId, path }) => {
   try {
     await connectDB();
 
-    const imageToUpdate = await Image.findById(image._id);
+    const imageToUpdate = await ImageModel.findById(image._id);
 
     if (!imageToUpdate || imageToUpdate.author.toHexString() !== userId) {
       throw new Error("Unauthorized or image not found");
@@ -65,28 +72,20 @@ export const deleteImage = async ({ imageId }) => {
   }
 };
 
-const populateUser = (query) =>
-  query.populate({
-    path: "author",
-    model: UserModel,
-    select: "_id firstName lastName",
-  });
-
 // get image by id
-export const getImageById = async ({ imageId }) => {
+export async function getImageById(imageId) {
   try {
     await connectDB();
 
     const image = await populateUser(ImageModel.findById(imageId));
-    revalidatePath(path);
 
-    if (!image) throw new Error("Image not found!");
+    if (!image) throw new Error("Image not found");
 
     return JSON.parse(JSON.stringify(image));
   } catch (error) {
     handleError(error);
   }
-};
+}
 
 // Get images
 export async function getAllImages({ limit = 9, page = 1, searchQuery = "" }) {
