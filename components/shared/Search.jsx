@@ -5,7 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Input } from "@/components/ui/input";
-import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import { formUrlQuery } from "@/utils/formUrlQuery";
+import { removeKeysFromQuery } from "@/utils/removeKeysFromQuery";
 
 export const Search = () => {
   const router = useRouter();

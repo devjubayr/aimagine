@@ -89,11 +89,7 @@ export const getImageById = async ({ imageId }) => {
 };
 
 // Get images
-export const getallImages = async ({
-  limit = 9,
-  page = 1,
-  searchQuery = "",
-}) => {
+export async function getAllImages({ limit = 9, page = 1, searchQuery = "" }) {
   try {
     await connectDB();
 
@@ -114,8 +110,34 @@ export const getallImages = async ({
       .expression(expression)
       .execute();
 
-    const resourceIds = resources;
+    const resourceIds = resources.map((resource) => resource.public_id);
+
+    let query = {};
+
+    if (searchQuery) {
+      query = {
+        publicId: {
+          $in: resourceIds,
+        },
+      };
+    }
+
+    const skipAmount = (Number(page) - 1) * limit;
+
+    const images = await populateUser(ImageModel.find(query))
+      .sort({ updatedAt: -1 })
+      .skip(skipAmount)
+      .limit(limit);
+
+    const totalImages = await ImageModel.find(query).countDocuments();
+    const savedImages = await ImageModel.find().countDocuments();
+
+    return {
+      data: JSON.parse(JSON.stringify(images)),
+      totalPage: Math.ceil(totalImages / limit),
+      savedImages,
+    };
   } catch (error) {
     handleError(error);
   }
-};
+}
