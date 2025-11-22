@@ -2,8 +2,9 @@
 
 import { dataUrl } from "@/utils/dataUrl";
 import { debounce } from "@/utils/debounce";
+import { download } from "@/utils/download";
 import { getImageSize } from "@/utils/getImageSize";
-import { CldImage } from "next-cloudinary";
+import { CldImage, getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 
 const TransformedImage = ({
@@ -15,7 +16,19 @@ const TransformedImage = ({
   setIsTransforming,
   hasDownload = false,
 }) => {
-  const downloadHandler = () => {};
+  const downloadHandler = (e) => {
+    e.preventDefault();
+
+    download(
+      getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId,
+        ...transformationConfig,
+      }),
+      title
+    );
+  };
 
   return (
     <div className="flex flex-col gap-4">
