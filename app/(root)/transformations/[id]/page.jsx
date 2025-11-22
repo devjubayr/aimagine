@@ -15,8 +15,6 @@ const ImageDetails = async ({ params }) => {
 
   const image = await getImageById(id);
 
-  console.log({ id });
-
   return (
     <>
       <Header title={image.title} />

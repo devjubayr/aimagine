@@ -210,6 +210,7 @@ export default function TransformationForm({
                 onValueChange={(value) => {
                   onSelectFieldHandler(value, field.onChange);
                 }}
+                value={field.value}
                 className="w-full"
               >
                 <SelectTrigger className="select-field">
