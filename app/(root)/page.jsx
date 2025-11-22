@@ -36,7 +36,7 @@ export default async function Home({ searchParams }) {
       <section className="sm:mt-12">
         <Collection
           hasSearch={true}
-          images={images}
+          images={images.data}
           totalPages={images.data.totalPages}
           page={page}
         />
