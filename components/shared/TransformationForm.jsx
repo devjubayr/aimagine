@@ -12,6 +12,7 @@ import {
   defaultValues,
   transformationTypes,
 } from "@/constants";
+import { debounce } from "@/utils/debounce";
 import { deepMergeObjects } from "@/utils/deepMergeObejct";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getCldImageUrl } from "next-cloudinary";
@@ -162,11 +163,11 @@ export default function TransformationForm({
           [filename === "prompt" ? "prompt" : "to"]: value,
         },
       }));
-      return onChangeField(value);
-    }, 1000);
+    }, 1000)();
+
+    return onChangeField(value);
   };
 
-  // Return to updated credits
   const onTransformHandler = async () => {
     setIsTransforming(true);
 

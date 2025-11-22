@@ -6,13 +6,13 @@ import { UserModel } from "@/models/user.model";
 import { handleError } from "@/utils/handleError";
 import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
 const populateUser = (query) =>
   query.populate({
     path: "author",
     model: UserModel,
-    select: "_id firstName lastName",
+    select: "_id firstName lastName clerkId",
   });
 
 // Add image
@@ -60,15 +60,21 @@ export const updateImage = async ({ image, userId, path }) => {
   }
 };
 // Delete image
+
 export const deleteImage = async ({ imageId }) => {
   try {
     await connectDB();
 
     await ImageModel.findByIdAndDelete(imageId);
-  } catch (error) {
-    handleError(error);
-  } finally {
+    revalidatePath("/");
     redirect("/");
+  } catch (error) {
+    if (error && error.message === "NEXT_REDIRECT") {
+      throw error;
+    }
+
+    handleError(error);
+    throw new Error("Failed to delete image due to a database error.");
   }
 };
 
@@ -91,7 +97,6 @@ export async function getImageById(imageId) {
 export async function getAllImages({ limit = 9, page = 1, searchQuery = "" }) {
   try {
     await connectDB();
-
     cloudinary.config({
       cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
       api_key: process.env.CLOUDINARY_API_KEY,

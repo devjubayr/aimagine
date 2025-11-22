@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getImageById } from "@/actions/image.actions";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import { getImageSize } from "@/utils/getImageSize";
 const ImageDetails = async ({ params }) => {
   const { id } = await params;
 
-  const { userId } = auth();
+  const { userId } = await auth();
 
   const image = await getImageById(id);
 
@@ -92,7 +93,7 @@ const ImageDetails = async ({ params }) => {
               </Link>
             </Button>
 
-            {/* <DeleteConfirmation imageId={image._id} /> */}
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>
