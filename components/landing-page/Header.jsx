@@ -59,9 +59,12 @@ const Header = () => {
               <button className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
                 Login
               </button>
-              <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100">
+              <Link
+                href="/sign-up"
+                className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
+              >
                 Sign Up Free
-              </button>
+              </Link>
             </div>
           </SignedOut>
           <SignedIn>

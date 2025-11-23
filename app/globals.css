@@ -1346,3 +1346,198 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Add these animations to your existing globals.css file */
+
+/* Floating Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(20px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Slow Pulse */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Radial Gradient Background */
+.bg-gradient-radial {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* Clerk Component Custom Styles */
+.clerk-signin-wrapper {
+  width: 100%;
+}
+
+/* Override Clerk styles for dark theme */
+.cl-rootBox {
+  width: 100%;
+}
+
+.cl-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cl-headerTitle,
+.cl-headerSubtitle {
+  display: none !important;
+}
+
+.cl-socialButtonsBlockButton {
+  background-color: var(--color-dark) !important;
+  border: 1px solid var(--color-border-light) !important;
+  color: white !important;
+  transition: all 0.2s !important;
+}
+
+.cl-socialButtonsBlockButton:hover {
+  border-color: white !important;
+}
+
+.cl-formButtonPrimary {
+  background: linear-gradient(90deg, #004aad, #039da5) !important;
+  transition: opacity 0.2s !important;
+}
+
+.cl-formButtonPrimary:hover {
+  opacity: 0.9 !important;
+}
+
+.cl-formFieldInput {
+  background-color: var(--color-dark) !important;
+  border: 1px solid var(--color-border-light) !important;
+  color: white !important;
+  transition: border-color 0.2s !important;
+}
+
+.cl-formFieldInput:focus {
+  border-color: white !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.cl-formFieldLabel {
+  color: white !important;
+}
+
+.cl-footerActionLink {
+  color: #5de0e6 !important;
+  transition: color 0.2s !important;
+}
+
+.cl-footerActionLink:hover {
+  color: white !important;
+}
+
+.cl-identityPreviewText {
+  color: white !important;
+}
+
+.cl-identityPreviewEditButton {
+  color: #5de0e6 !important;
+}
+
+.cl-formFieldInputShowPasswordButton {
+  color: var(--color-text-gray) !important;
+}
+
+.cl-formFieldInputShowPasswordButton:hover {
+  color: white !important;
+}
+
+.cl-otpCodeFieldInput {
+  background-color: var(--color-dark) !important;
+  border: 1px solid var(--color-border-light) !important;
+  color: white !important;
+}
+
+.cl-footer {
+  display: none !important;
+}
+
+/* Smooth Transitions for all interactive elements */
+button,
+a,
+input {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Glow Effect on Hover */
+.group:hover .animate-glow {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .animate-float,
+  .animate-float-delayed {
+    animation: none;
+  }
+}
+
+/* Loading State */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-dark-lighter) 0%,
+    var(--color-border-light) 50%,
+    var(--color-dark-lighter) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
