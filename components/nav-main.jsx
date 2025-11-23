@@ -22,12 +22,12 @@ export function NavMain({ items }) {
             return (
               <li
                 key={item.route}
-                className={`group flex justify-center w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-purple-100 hover:shadow-inner p-16-semibold ${
+                className={`group flex justify-center w-full whitespace-nowrap rounded-lg bg-cover transition-all hover:bg-purple-100 hover:shadow-inner p-16-semibold ${
                   isActive ? "bg-purple-gradient text-white" : "text-white/90"
                 }`}
               >
                 <Link
-                  className="flex size-full gap-4 p-4 p-16-semibold"
+                  className="flex size-full gap-4 p-3 p-16-semibold"
                   href={item.route}
                 >
                   <Image

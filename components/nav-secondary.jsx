@@ -16,27 +16,27 @@ export function NavSecondary({ items, ...props }) {
     <SidebarGroup {...props}>
       <SidebarGroupContent>
         <SidebarMenu>
-          {navLinks.slice(5).map((link) => {
-            const isActive = link === pathname;
+          {navLinks.slice(5).map((item) => {
+            const isActive = item.route === pathname;
             return (
               <li
-                key={link.route}
-                className={`group flex justify-center w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-purple-100 hover:shadow-inner p-16-semibold ${
+                key={item.route}
+                className={`group flex justify-center w-full whitespace-nowrap rounded-lg bg-cover transition-all hover:bg-purple-100 hover:shadow-inner p-16-semibold ${
                   isActive ? "bg-purple-gradient text-white" : "text-white/90"
                 }`}
               >
                 <Link
-                  className="flex size-full gap-4 p-4 p-16-semibold"
-                  href={link.route}
+                  className="flex size-full gap-4 p-3 p-16-semibold items-center"
+                  href={item.route}
                 >
                   <Image
-                    src={link.icon}
+                    src={item.icon}
                     alt="logo"
                     width={24}
                     height={24}
                     className={`${isActive ? "brightness-200" : ""}`}
                   />
-                  {link.label}
+                  {item.label}
                 </Link>
               </li>
             );
