@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { checkoutCredits } from "@/actions/tranasction.action";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Button } from "../ui/button";
 
 const Checkout = ({ plan, amount, credits, buyerId }) => {
   const router = useRouter();
@@ -52,14 +51,14 @@ const Checkout = ({ plan, amount, credits, buyerId }) => {
 
   return (
     <section>
-      <Button
+      <button
         onClick={onCheckout}
         type="submit"
         role="link"
-        className="w-full rounded-full bg-purple-gradient bg-cover"
+        className="w-full rounded-full bg-purple-gradient bg-cover py-4 border border-dark-light cursor-pointer"
       >
         Buy Credit
-      </Button>
+      </button>
     </section>
   );
 };

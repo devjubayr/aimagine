@@ -1,20 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-// const DashboardLayout = ({ children }) => {
-//   return (
-//     <main className="dashboard">
-//       <Sidebar />
-//       <MobileNav />
-//       <div className="dashboard-container bg-dark">
-//         <div className="wrapper">{children}</div>
-//       </div>
-
-//       <Toaster />
-//     </main>
-//   );
-// };
-// export default DashboardLayout;
 
 export default function DashboardLayout({ children }) {
   return (
@@ -28,7 +14,7 @@ export default function DashboardLayout({ children }) {
       <SidebarInset>
         <SiteHeader />
         <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2 px-5">
+          <div className="@container/main flex flex-1 flex-col gap-2 py-10 pb-20 px-5">
             {children}
           </div>
         </div>

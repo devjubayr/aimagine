@@ -302,6 +302,7 @@ export default function TransformationForm({
             isTransforming={isTransforming}
             setIsTransforming={setIsTransforming}
             transformationConfig={transformationConfig}
+            hasDownload={transformationConfig && true}
           />
         </div>
 

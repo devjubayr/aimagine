@@ -76,6 +76,8 @@ export const updateCredits = async (userId, creditAmount) => {
 
     if (!updatedUserCredits) throw new Error("User credits update failed");
 
+    revalidatePath("/dashboard");
+
     return JSON.parse(JSON.stringify(updatedUserCredits));
   } catch (error) {
     handleError(error);

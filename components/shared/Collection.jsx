@@ -92,7 +92,7 @@ const Card = ({ image }) => {
     <li>
       <Link
         href={`/dashboard/transformations/${image._id}`}
-        className="collection-card bg-dark-lighter"
+        className="collection-card bg-dark-lighter  border"
       >
         <CldImage
           src={image.publicId}

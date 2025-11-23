@@ -21,7 +21,7 @@ const Profile = async ({ searchParams }) => {
       <Header title="Profile" />
 
       <section className="profile">
-        <div className="profile-balance">
+        <div className="profile-balance bg-dark-light border ">
           <p className="p-14-medium md:p-16-medium">CREDITS AVAILABLE</p>
           <div className="mt-4 flex items-center gap-4">
             <Image
@@ -35,7 +35,7 @@ const Profile = async ({ searchParams }) => {
           </div>
         </div>
 
-        <div className="profile-image-manipulation">
+        <div className="profile-image-manipulation bg-dark-light border">
           <p className="p-14-medium md:p-16-medium">IMAGE MANIPULATION DONE</p>
           <div className="mt-4 flex items-center gap-4">
             <Image

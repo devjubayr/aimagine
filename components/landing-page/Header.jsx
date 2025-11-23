@@ -19,7 +19,7 @@ const Header = () => {
               <h2 className="flex text-2xl capitalize">
                 <span className="">a</span>
                 <span className="bg-linear-to-tl from-blue-primary to-blue-secondary bg-clip-text text-transparent uppercase">
-                  imagin
+                  imagine
                 </span>
               </h2>
             </div>

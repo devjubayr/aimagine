@@ -4,7 +4,6 @@ import Image from "next/image";
 import { getUserById } from "@/actions/user.actions";
 import Checkout from "@/components/shared/CheckOut";
 import Header from "@/components/shared/Header";
-import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -56,9 +55,12 @@ const Credits = async () => {
               </ul>
 
               {plan.name === "Free" ? (
-                <Button variant="outline" className="credits-btn">
+                <button
+                  variant="outline"
+                  className="credits-btn py-4 border border-dark-light cursor-pointer"
+                >
                   Free Plan
-                </Button>
+                </button>
               ) : (
                 <SignedIn>
                   <Checkout
