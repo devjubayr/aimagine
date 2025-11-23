@@ -41,21 +41,10 @@ export const Collection = ({
 
   return (
     <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
-      {/* HEADER AND SEARCH AREA (Clean, Separated) */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 border-b border-gray-200 pb-4">
         <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
           Recent Edits
         </h2>
-        {hasSearch && (
-          <div className="relative w-full max-w-sm mt-4 sm:mt-0">
-            <input
-              type="text"
-              placeholder="Search images by title..."
-              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500 outline-none transition-colors shadow-sm text-base"
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-          </div>
-        )}
       </div>
 
       {/* IMAGE GRID */}
