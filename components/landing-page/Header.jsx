@@ -44,12 +44,12 @@ const Header = () => {
               >
                 About Us
               </a>
-              <a
-                href="#roadmap"
+              <Link
+                href="/plans"
                 className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
               >
                 Pricing
-              </a>
+              </Link>
             </div>
           </div>
 

@@ -1,20 +1,15 @@
+import Logo from "../shared/Logo";
+
 const Footer = () => {
   return (
     <footer className="relative mt-32 overflow-hidden px-6 py-20">
-      {/* Decorative Background Elements */}
-      <div className="grid-bg absolute inset-0 opacity-10"></div>
-      <div className="absolute top-0 left-1/2 h-px w-full -translate-x-1/2 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"></div>
-
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Main Footer Content */}
         <div className="mb-16 grid gap-12 lg:grid-cols-12">
           {/* Brand Section */}
           <div className="lg:col-span-5">
-            <div className="h-full rounded-2xl border border-border-dark bg-dark-lighter p-8">
-              <div className="mb-6 text-3xl font-black">
-                <span className="text-white">CREATIVE</span>
-                <span className="text-text-gray">VISION</span>
-              </div>
+            <div className="h-full rounded-2xl border border-border-dark bg-dark-light p-8">
+              <Logo />
               <p className="mb-8 text-lg leading-relaxed text-text-gray">
                 Transform your creative workflow with AI-powered tools. Built
                 for creators, designers, and innovators.
@@ -89,7 +84,6 @@ const Footer = () => {
             {/* Product Links */}
             <div>
               <h4 className="mb-6 flex items-center gap-2 text-lg font-bold">
-                <div className="h-6 w-1 rounded-full bg-white"></div>
                 Product
               </h4>
               <ul className="space-y-4">
@@ -98,7 +92,6 @@ const Footer = () => {
                     href="#features"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Features
                   </a>
                 </li>
@@ -107,7 +100,6 @@ const Footer = () => {
                     href="#how-it-works"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     How it Works
                   </a>
                 </li>
@@ -116,7 +108,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Pricing
                   </a>
                 </li>
@@ -125,7 +116,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     API Docs
                   </a>
                 </li>
@@ -134,7 +124,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Integrations
                   </a>
                 </li>
@@ -144,7 +133,6 @@ const Footer = () => {
             {/* Company Links */}
             <div>
               <h4 className="mb-6 flex items-center gap-2 text-lg font-bold">
-                <div className="h-6 w-1 rounded-full bg-white"></div>
                 Company
               </h4>
               <ul className="space-y-4">
@@ -153,7 +141,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     About Us
                   </a>
                 </li>
@@ -162,7 +149,6 @@ const Footer = () => {
                     href="#roadmap"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Roadmap
                   </a>
                 </li>
@@ -171,7 +157,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Careers
                   </a>
                 </li>
@@ -180,7 +165,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Blog
                   </a>
                 </li>
@@ -189,7 +173,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Press Kit
                   </a>
                 </li>
@@ -199,7 +182,6 @@ const Footer = () => {
             {/* Support Links */}
             <div>
               <h4 className="mb-6 flex items-center gap-2 text-lg font-bold">
-                <div className="h-6 w-1 rounded-full bg-white"></div>
                 Support
               </h4>
               <ul className="space-y-4">
@@ -208,7 +190,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Help Center
                   </a>
                 </li>
@@ -217,7 +198,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Documentation
                   </a>
                 </li>
@@ -226,7 +206,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Community
                   </a>
                 </li>
@@ -235,7 +214,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Status
                   </a>
                 </li>
@@ -244,7 +222,6 @@ const Footer = () => {
                     href="#"
                     className="group flex items-center gap-2 text-sm text-text-gray transition-colors hover:text-white"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-border-light transition-colors group-hover:bg-white"></span>
                     Contact
                   </a>
                 </li>

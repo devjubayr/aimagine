@@ -20,7 +20,7 @@ export async function SiteHeader() {
           className="mx-2 data-[orientation=vertical]:h-4"
         />
         <div className="ml-auto flex items-center gap-2 ">
-          <div className="mt-4 flex items-center gap-4 bg-border-dark px-3 py-1 rounded-md mb-4 ">
+          <div className=" flex items-center gap-4 bg-border-dark px-3 rounded-md  ">
             <Image
               src="/assets/icons/coins.svg"
               alt="coins"
@@ -28,7 +28,9 @@ export async function SiteHeader() {
               height={20}
               className="size-4 md:size-6 "
             />
-            <h2 className="md:text-xl text-dark-600">{user.creditBalance}</h2>
+            <h2 className="md:text-xl text-xs text-dark-600">
+              {user.creditBalance}
+            </h2>
           </div>
         </div>
       </div>
