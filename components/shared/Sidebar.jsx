@@ -5,20 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
+import Logo from "./Logo";
 
 const Sidebar = () => {
   const pathname = usePathname();
   return (
     <aside className="hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex">
       <div className="flex size-full flex-col gap-4">
-        <Link href="/" className="flex items-center gap-2 md:py-2">
-          <Image
-            src="/assets/images/logo-text.svg"
-            alt="logo"
-            width={180}
-            height={28}
-          />
-        </Link>
+        <Logo />
         <nav className="h-full flex-col justify-between md:flex md:gap-4">
           <SignedIn>
             <ul className="hidden w-full flex-col items-start gap-2 md:flex">

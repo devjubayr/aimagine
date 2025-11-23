@@ -1,0 +1,68 @@
+import Image from "next/image";
+
+const Header = () => {
+  return (
+    <header className="fixed top-0 right-0 left-0 z-50 bg-dark-light/80 backdrop-blur-xl border-b border-[#1f1f1f]">
+      <div className="mx-auto w-[95%] px-6 lg:px-8 2xl:max-w-[1400px]">
+        <nav className="flex h-20 items-center justify-between">
+          <div className="flex gap-10">
+            <div className="font-poppins font-semibold flex gap-2">
+              <Image
+                src="/logo.png"
+                className="rounded-[6px]"
+                alt="logo"
+                width={30}
+                height={30}
+              />
+              <h2 className="flex text-2xl capitalize">
+                <span className="">a</span>
+                <span className="bg-linear-to-tl from-blue-primary to-blue-secondary bg-clip-text text-transparent uppercase">
+                  imagin
+                </span>
+              </h2>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="hidden items-center space-x-8 md:flex">
+              <a
+                href="#hero"
+                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
+              >
+                Home
+              </a>
+              <a
+                href="#features"
+                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
+              >
+                Solutions
+              </a>
+              <a
+                href="#how-it-works"
+                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
+              >
+                About Us
+              </a>
+              <a
+                href="#roadmap"
+                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
+              >
+                Pricing
+              </a>
+            </div>
+          </div>
+
+          {/* Auth Buttons */}
+          <div className="flex items-center space-x-4">
+            <button className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
+              Login
+            </button>
+            <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100">
+              Sign Up Free
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
+};
+export default Header;
