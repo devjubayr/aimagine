@@ -32,18 +32,29 @@ const TransformedImage = ({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex-between">
-        <h3 className="h3-bold text-dark-600">Transformed</h3>
+      <div className="flex items-center justify-between">
+        <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+          Transformed
+        </h3>
 
         {hasDownload && (
-          <button className="download-btn text-white" onClick={downloadHandler}>
-            <Image
-              src="/assets/icons/download.svg"
-              alt="Download"
-              width={24}
-              height={24}
-              className="pb-1.5"
-            />
+          <button
+            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#004aad] to-[#039da5] text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-lg"
+            onClick={downloadHandler}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              ></path>
+            </svg>
             Download
           </button>
         )}
@@ -51,39 +62,95 @@ const TransformedImage = ({
 
       {image?.publicId && transformationConfig ? (
         <div className="relative">
-          <CldImage
-            width={getImageSize(type, image, "width")}
-            height={getImageSize(type, image, "height")}
-            src={image?.publicId}
-            alt={image.title}
-            sizes={"(max-width: 767px) 100vw, 50vw"}
-            placeholder={dataUrl}
-            className="transformed-image"
-            onLoad={() => {
-              setIsTransforming && setIsTransforming(false);
-            }}
-            onError={() => {
-              debounce(() => {
+          <div className="overflow-hidden rounded-2xl border-2 border-border-dark hover:border-white/40 transition-all duration-300">
+            <CldImage
+              width={getImageSize(type, image, "width")}
+              height={getImageSize(type, image, "height")}
+              src={image?.publicId}
+              alt={image.title}
+              sizes={"(max-width: 767px) 100vw, 50vw"}
+              placeholder={dataUrl}
+              className="w-full h-auto object-contain"
+              onLoad={() => {
                 setIsTransforming && setIsTransforming(false);
-              }, 8000)();
-            }}
-            {...transformationConfig}
-          />
+              }}
+              onError={() => {
+                debounce(() => {
+                  setIsTransforming && setIsTransforming(false);
+                }, 8000)();
+              }}
+              {...transformationConfig}
+            />
+          </div>
 
           {isTransforming && (
-            <div className="transforming-loader">
-              <Image
-                src="/assets/icons/spinner.svg"
-                width={50}
-                height={50}
-                alt="spinner"
-              />
-              <p className="text-white/80">Please wait...</p>
+            <div className="absolute inset-0 bg-dark/95 backdrop-blur-sm flex flex-col items-center justify-center gap-6 z-10 rounded-2xl">
+              {/* Animated Spinner */}
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full border-4 border-border-dark"></div>
+                <div className="absolute inset-0 w-24 h-24 rounded-full border-4 border-transparent border-t-[#5de0e6] border-r-[#004aad] animate-spin"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Image
+                    src="/assets/icons/spinner.svg"
+                    width={50}
+                    height={50}
+                    alt="spinner"
+                    className="opacity-80"
+                  />
+                </div>
+              </div>
+
+              <div className="text-center space-y-2">
+                <p className="text-white font-medium text-lg">Please wait...</p>
+                <p className="text-text-gray text-sm">
+                  Applying AI transformations
+                </p>
+              </div>
+
+              {/* Animated Dots */}
+              <div className="flex gap-2">
+                <div
+                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
+                  style={{ animationDelay: "0ms" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
+                  style={{ animationDelay: "150ms" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
+                  style={{ animationDelay: "300ms" }}
+                ></div>
+              </div>
             </div>
           )}
         </div>
       ) : (
-        <div className="transformed-placeholder">Transformed Image</div>
+        <div className="min-h-[400px] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-border-dark bg-dark-lighter/50 gap-4 p-8">
+          <div className="w-20 h-20 rounded-full border-2 border-border-dark flex items-center justify-center">
+            <svg
+              className="w-10 h-10 text-text-gray"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <div className="text-center space-y-2">
+            <p className="text-lg font-semibold text-white">
+              Transformed Image
+            </p>
+            <p className="text-sm text-text-gray max-w-xs">
+              Your AI-transformed image will appear here
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

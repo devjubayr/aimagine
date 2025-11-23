@@ -19,7 +19,6 @@ import { getCldImageUrl } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "../ui/button";
 import {
   Select,
   SelectContent,
@@ -27,6 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import ActionButtons from "./ActionButtons";
 import { CustomField } from "./CustomField";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import MediaUploader from "./MediaUploader";
@@ -109,7 +109,7 @@ export default function TransformationForm({
           if (newImage) {
             form.reset();
             setImage(data);
-            router.push(`/transformations/${newImage._id}`);
+            router.push(`/dashboard/transformations/${newImage._id}`);
           }
         } catch (error) {
           console.log(error);
@@ -196,8 +196,10 @@ export default function TransformationForm({
           control={form.control}
           name="title"
           formLabel="Image title"
-          className="w-full mb-6"
-          render={({ field }) => <Input {...field} className="input-field" />}
+          className="w-full mb-6  "
+          render={({ field }) => (
+            <Input {...field} className="input-field  focus:outline-none " />
+          )}
         />
 
         {type === "fill" && (
@@ -217,9 +219,13 @@ export default function TransformationForm({
                 <SelectTrigger className="select-field">
                   <SelectValue placeholder="Select Size" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-dark">
                   {Object.keys(aspectRatioOptions).map((key) => (
-                    <SelectItem key={key} value={key} className="select-item">
+                    <SelectItem
+                      key={key}
+                      value={key}
+                      className="select-item bg-dark-light"
+                    >
                       {aspectRatioOptions[key].label}
                     </SelectItem>
                   ))}
@@ -306,23 +312,13 @@ export default function TransformationForm({
           />
         </div>
 
-        <div className="flex flex-col gap-4">
-          <Button
-            type="button"
-            className="submit-button capitalize"
-            disabled={isTransforming || newTransformation === null}
-            onClick={onTransformHandler}
-          >
-            {isTransforming ? "Transforming..." : "Apply Transformation"}
-          </Button>
-          <Button
-            type="submit"
-            className="submit-button capitalize"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Submitting..." : "Save Image"}
-          </Button>
-        </div>
+        <ActionButtons
+          isSubmitting={isSubmitting}
+          isTransforming={isTransforming}
+          newTransformation={newTransformation}
+          onTransformHandler={onTransformHandler}
+          transformationConfig={transformationConfig}
+        />
       </form>
     </Form>
   );
