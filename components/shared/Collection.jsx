@@ -16,7 +16,6 @@ import { transformationTypes } from "@/constants";
 import { Button } from "../ui/button";
 
 import { formUrlQuery } from "@/utils/formUrlQuery";
-import { Search } from "./Search";
 
 export const Collection = ({
   hasSearch = false,
@@ -44,11 +43,11 @@ export const Collection = ({
     <>
       <div className="collection-heading">
         <h2 className="h2-bold text-dark-600">Recent Edits</h2>
-        {hasSearch && <Search />}
+        {/* {hasSearch && <Search />} */}
       </div>
 
       {images.length > 0 ? (
-        <ul className="collection-list">
+        <ul className="grid lg:grid-cols-3 sm:grid-cols-2 gap-4 ">
           {images.map((image) => (
             <Card image={image} key={image._id} />
           ))}
@@ -91,7 +90,10 @@ export const Collection = ({
 const Card = ({ image }) => {
   return (
     <li>
-      <Link href={`/transformations/${image._id}`} className="collection-card">
+      <Link
+        href={`/dashboard/transformations/${image._id}`}
+        className="collection-card bg-dark-lighter"
+      >
         <CldImage
           src={image.publicId}
           alt={image.title}

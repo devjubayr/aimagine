@@ -94,7 +94,7 @@ export async function getImageById(imageId) {
 }
 
 // Get images
-export async function getAllImages({ limit = 9, page = 1, searchQuery = "" }) {
+export async function getAllImages({ limit = 9, page = 1 }) {
   try {
     await connectDB();
     cloudinary.config({
@@ -106,25 +106,13 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = "" }) {
 
     let expression = "folder=imaginify";
 
-    if (searchQuery) {
-      expression += ` AND ${searchQuery}`;
-    }
-
     const { resources } = await cloudinary.search
       .expression(expression)
       .execute();
 
-    const resourceIds = resources.map((resource) => resource.public_id);
+    // const resourceIds = resources.map((resource) => resource.public_id);
 
     let query = {};
-
-    if (searchQuery) {
-      query = {
-        publicId: {
-          $in: resourceIds,
-        },
-      };
-    }
 
     const skipAmount = (Number(page) - 1) * limit;
 

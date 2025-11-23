@@ -1,3 +1,5 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+
 const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-dark-light rounded-br-[100px] rounded-bl-[100px] px-6 pt-32 pb-20">
@@ -27,19 +29,20 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#features"
-              className="w-full rounded-full bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-4 text-lg font-semibold text-white shadow-2xl shadow-white/10 transition-all duration-200 hover:opacity-90 sm:w-auto"
-            >
-              Start Free Trial
-            </a>
+            <SignedOut>
+              <button className="w-full rounded-full bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-4 text-lg font-semibold text-white shadow-2xl shadow-white/10 transition-all duration-200 hover:opacity-90 sm:w-auto">
+                Start Free Trial
+              </button>
+            </SignedOut>
+            <SignedIn>
+              <button className="w-full rounded-full bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-4 text-lg font-semibold text-white shadow-2xl shadow-white/10 transition-all duration-200 hover:opacity-90 sm:w-auto">
+                Go Dashboard
+              </button>
+            </SignedIn>
 
-            <a
-              href="#how-it-works"
-              className="w-full rounded-full border-2 border-border-light bg-transparent px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:border-white sm:w-auto"
-            >
+            <button className="w-full rounded-full border-2 border-border-light bg-transparent px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:border-white sm:w-auto">
               Watch Demo
-            </a>
+            </button>
           </div>
         </div>
 

@@ -1,4 +1,6 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -51,15 +53,25 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Auth Buttons */}
-          <div className="flex items-center space-x-4">
-            <button className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
-              Login
-            </button>
-            <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100">
-              Sign Up Free
-            </button>
-          </div>
+          <SignedOut>
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-4">
+              <button className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
+                Login
+              </button>
+              <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100">
+                Sign Up Free
+              </button>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            <Link
+              href="/dashboard"
+              className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
+            >
+              Dashboard
+            </Link>
+          </SignedIn>
         </nav>
       </div>
     </header>

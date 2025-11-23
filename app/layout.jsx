@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import LenisProvider from "@/providers/LenisProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -28,7 +27,7 @@ export default function RootLayout({ children }) {
     >
       <html lang="en" className="dark">
         <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
-          <LenisProvider>{children}</LenisProvider>
+          {children}
         </body>
       </html>
     </ClerkProvider>
