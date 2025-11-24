@@ -7,9 +7,6 @@ const Features = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-24">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-dark border border-border-dark rounded-full mb-6">
-            <span className="text-sm text-text-gray">Core Features</span>
-          </div>
           <h2 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             Generate Smarter,
             <br />

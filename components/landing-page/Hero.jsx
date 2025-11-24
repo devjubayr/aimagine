@@ -1,4 +1,5 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import CountingProgress from "./CountingProgress";
 
 const Hero = () => {
   return (
@@ -48,18 +49,9 @@ const Hero = () => {
 
         {/* Hero Stats */}
         <div className="mx-auto grid max-w-3xl grid-cols-3 gap-8 border-t border-border-dark pt-16">
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold">50K+</div>
-            <div className="text-text-gray text-sm">Active Users</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold">99.9%</div>
-            <div className="text-text-gray text-sm">Uptime SLA</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold">2M+</div>
-            <div className="text-text-gray text-sm">Generated</div>
-          </div>
+          <CountingProgress label="Generated" end={2} other="M+" duration={2} />
+          <CountingProgress label="Active Users" end={500} other="+" />
+          <CountingProgress label="Uptime SLA" end={99.9} other="%" />
         </div>
       </div>
     </section>
