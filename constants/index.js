@@ -193,3 +193,22 @@ export const defaultValues = {
 };
 
 export const creditFee = -1;
+
+export const rooNavLinks = [
+  {
+    label: "Home",
+    route: "/",
+  },
+  {
+    label: "Pricing",
+    route: "/plans",
+  },
+  {
+    label: "About Us",
+    route: "/about",
+  },
+  {
+    label: "Contact Us",
+    route: "/contact",
+  },
+];

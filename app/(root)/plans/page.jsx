@@ -153,7 +153,7 @@ const PlansPage = async () => {
                 key={plan.name}
                 className={`relative group rounded-3xl border-2 transition-all duration-300 ${
                   plan.name === "Pro Package"
-                    ? "border-[#5de0e6] bg-gradient-to-br from-[#004aad]/10 to-[#5de0e6]/10 shadow-2xl shadow-[#5de0e6]/20 scale-105"
+                    ? "border-[#5de0e6] bg-gradient-to-br from-[#004aad]/10 to-[#5de0e6]/10 shadow-sm shadow-[#5de0e6]/20 scale-105"
                     : "border-border-dark bg-dark hover:border-white/40"
                 } p-8`}
               >

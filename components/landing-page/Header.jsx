@@ -1,5 +1,5 @@
+import { rooNavLinks } from "@/constants";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
@@ -8,14 +8,7 @@ const Header = () => {
       <div className="mx-auto w-[95%] px-6 lg:px-8 2xl:max-w-[1400px]">
         <nav className="flex h-20 items-center justify-between">
           <div className="flex gap-10">
-            <div className="font-poppins font-semibold flex gap-2">
-              <Image
-                src="/logo.png"
-                className="rounded-[6px]"
-                alt="logo"
-                width={30}
-                height={30}
-              />
+            <div className="font-poppins font-semibold ">
               <h2 className="flex text-2xl capitalize">
                 <span className="">a</span>
                 <span className="bg-linear-to-tl from-blue-primary to-blue-secondary bg-clip-text text-transparent uppercase">
@@ -26,30 +19,14 @@ const Header = () => {
 
             {/* Navigation Links */}
             <div className="hidden items-center space-x-8 md:flex">
-              <a
-                href="#hero"
-                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
-              >
-                Home
-              </a>
-              <a
-                href="#features"
-                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
-              >
-                Solutions
-              </a>
-              <a
-                href="#how-it-works"
-                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
-              >
-                About Us
-              </a>
-              <Link
-                href="/plans"
-                className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
-              >
-                Pricing
-              </Link>
+              {rooNavLinks.map((link) => (
+                <Link
+                  href={link.route}
+                  className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -70,7 +47,7 @@ const Header = () => {
           <SignedIn>
             <Link
               href="/dashboard"
-              className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
+              className="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
             >
               Dashboard
             </Link>

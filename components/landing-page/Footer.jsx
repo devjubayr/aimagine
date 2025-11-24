@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "../shared/Logo";
 
 const Footer = () => {
@@ -234,24 +235,32 @@ const Footer = () => {
         <div className="relative">
           <div className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-border-dark to-transparent"></div>
           <div className="flex flex-col items-center justify-between gap-6 pt-8 lg:flex-row">
-            <div className="flex flex-col items-center gap-6 text-sm text-text-gray sm:flex-row">
-              <p>© 2024 CreativeVision</p>
-              <div className="hidden h-1 w-1 rounded-full bg-border-dark sm:block"></div>
-              <p>All rights reserved</p>
-            </div>
+            <div className="flex items-center gap-5">
+              <div className="flex flex-col items-center gap-6 text-sm text-text-gray sm:flex-row">
+                <p>© {new Date().getFullYear()} AIMAGINE</p>
+                <div className="hidden h-1 w-1 rounded-full bg-border-dark sm:block"></div>
+                <p>All rights reserved</p>
+              </div>
 
-            <div className="flex items-center gap-6 text-sm text-text-gray">
-              <a href="#" className="transition-colors hover:text-white">
-                Privacy Policy
-              </a>
-              <div className="h-1 w-1 rounded-full bg-border-dark"></div>
-              <a href="#" className="transition-colors hover:text-white">
-                Terms of Service
-              </a>
-              <div className="h-1 w-1 rounded-full bg-border-dark"></div>
-              <a href="#" className="transition-colors hover:text-white">
-                Cookie Policy
-              </a>
+              <div className="flex items-center gap-6 text-sm text-text-gray">
+                <a href="#" className="transition-colors hover:text-white">
+                  Privacy Policy
+                </a>
+                <div className="h-1 w-1 rounded-full bg-border-dark"></div>
+                <a href="#" className="transition-colors hover:text-white">
+                  Terms of Service
+                </a>
+                <div className="h-1 w-1 rounded-full bg-border-dark"></div>
+                <a href="#" className="transition-colors hover:text-white">
+                  Cookie Policy
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-text-gray">
+              Created by
+              <Link href="https" className="transition-colors hover:text-white">
+                devjubayr
+              </Link>
             </div>
           </div>
         </div>
