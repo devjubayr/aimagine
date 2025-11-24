@@ -6,21 +6,15 @@ const ActionButtons = ({
   newTransformation,
   onTransformHandler,
   transformationConfig,
+  image,
 }) => {
-  console.log(
-    isSubmitting,
-    isTransforming,
-    newTransformation,
-    transformationConfig
-  );
-
   return (
     <div className="flex flex-col gap-4">
       {/* Transform Button */}
       <Button
         type="button"
         className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-6 text-base font-semibold text-white shadow-lg  transition-all duration-300 hover:opacity-90 hover:shadow-2xl hover:shadow-[#5de0e6]/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-lg"
-        disabled={isTransforming || !newTransformation || isSubmitting}
+        disabled={isTransforming || !image || isSubmitting}
         onClick={onTransformHandler}
       >
         {/* Button Content */}

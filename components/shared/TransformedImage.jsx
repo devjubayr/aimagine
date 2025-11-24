@@ -19,15 +19,14 @@ const TransformedImage = ({
   const downloadHandler = (e) => {
     e.preventDefault();
 
-    download(
-      getCldImageUrl({
-        width: image?.width,
-        height: image?.height,
-        src: image?.publicId,
-        ...transformationConfig,
-      }),
-      title
-    );
+    const getCldUrl = getCldImageUrl({
+      width: image?.width,
+      height: image?.height,
+      src: image?.publicId,
+      ...transformationConfig,
+    });
+
+    download(getCldUrl, title);
   };
 
   return (
@@ -39,8 +38,9 @@ const TransformedImage = ({
 
         {hasDownload && (
           <button
-            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#004aad] to-[#039da5] text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-lg"
+            className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all disabled:bg-gray-400  duration-200 shadow-lg"
             onClick={downloadHandler}
+            disabled={isTransforming}
           >
             <svg
               className="w-5 h-5"
@@ -55,7 +55,6 @@ const TransformedImage = ({
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
               ></path>
             </svg>
-            Download
           </button>
         )}
       </div>
@@ -103,24 +102,8 @@ const TransformedImage = ({
               <div className="text-center space-y-2">
                 <p className="text-white font-medium text-lg">Please wait...</p>
                 <p className="text-text-gray text-sm">
-                  Applying AI transformations
+                  It will take a few seconds
                 </p>
-              </div>
-
-              {/* Animated Dots */}
-              <div className="flex gap-2">
-                <div
-                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
-                  style={{ animationDelay: "0ms" }}
-                ></div>
-                <div
-                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
-                  style={{ animationDelay: "150ms" }}
-                ></div>
-                <div
-                  className="w-2 h-2 bg-[#5de0e6] rounded-full animate-bounce"
-                  style={{ animationDelay: "300ms" }}
-                ></div>
               </div>
             </div>
           )}

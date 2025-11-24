@@ -67,7 +67,7 @@ export const deleteImage = async ({ imageId }) => {
 
     await ImageModel.findByIdAndDelete(imageId);
     revalidatePath("/");
-    redirect("/");
+    redirect("/dashboard");
   } catch (error) {
     if (error && error.message === "NEXT_REDIRECT") {
       throw error;

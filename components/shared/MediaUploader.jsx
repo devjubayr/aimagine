@@ -5,7 +5,14 @@ import { CldImage, CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { toast } from "sonner";
 
-const MediaUploader = ({ onValueChange, setImage, publicId, type, image }) => {
+const MediaUploader = ({
+  onValueChange,
+  setImage,
+  publicId,
+  type,
+  image,
+  isTransforming,
+}) => {
   const onUploadSuccessHandler = (result) => {
     setImage((prev) => ({
       ...prev,
@@ -61,27 +68,29 @@ const MediaUploader = ({ onValueChange, setImage, publicId, type, image }) => {
               />
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <button
-                  onClick={() => open()}
-                  className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-200 flex items-center justify-center gap-2 font-medium"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              {!isTransforming && (
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <button
+                    onClick={() => open()}
+                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-200 flex items-center justify-center gap-2 font-medium"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                    ></path>
-                  </svg>
-                  Upload New Image
-                </button>
-              </div>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      ></path>
+                    </svg>
+                    Upload New Image
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div

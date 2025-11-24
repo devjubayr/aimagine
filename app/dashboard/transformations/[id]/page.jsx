@@ -1,13 +1,13 @@
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
-import Link from "next/link";
 
 import { getImageById } from "@/actions/image.actions";
 import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
-import { Button } from "@/components/ui/button";
 import { getImageSize } from "@/utils/getImageSize";
+import { EditIcon } from "lucide-react";
+import Link from "next/link";
 
 const ImageDetails = async ({ params }) => {
   const { id } = await params;
@@ -18,6 +18,17 @@ const ImageDetails = async ({ params }) => {
 
   return (
     <>
+      {userId === image.author.clerkId && (
+        <div className="mt-4 flex justify-end gap-4">
+          <button asChild type="button" title="update">
+            <Link href={`/dashboard/transformations/${image._id}/update`}>
+              <EditIcon />
+            </Link>
+          </button>
+
+          <DeleteConfirmation imageId={image._id} />
+        </div>
+      )}
       <Header title={image.title} />
 
       <section className="mt-5 flex flex-wrap gap-4">
@@ -84,18 +95,6 @@ const ImageDetails = async ({ params }) => {
             hasDownload={true}
           />
         </div>
-
-        {userId === image.author.clerkId && (
-          <div className="mt-4 space-y-4">
-            <Button asChild type="button" className="submit-button capitalize">
-              <Link href={`/dashboard/transformations/${image._id}/update`}>
-                Update Image
-              </Link>
-            </Button>
-
-            <DeleteConfirmation imageId={image._id} />
-          </div>
-        )}
       </section>
     </>
   );

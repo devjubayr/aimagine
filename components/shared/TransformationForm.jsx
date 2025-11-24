@@ -297,6 +297,7 @@ export default function TransformationForm({
                 publicId={field.value}
                 image={image}
                 type={type}
+                isTransforming={isTransforming}
               />
             )}
           />
@@ -318,6 +319,7 @@ export default function TransformationForm({
           newTransformation={newTransformation}
           onTransformHandler={onTransformHandler}
           transformationConfig={transformationConfig}
+          image={image}
         />
       </form>
     </Form>

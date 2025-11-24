@@ -65,7 +65,7 @@ const ErrorPage = ({ error, reset }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <button
             onClick={() => reset()}
-            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#004aad] to-[#039da5] text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
           >
             <svg
               className="w-5 h-5"

@@ -35,7 +35,7 @@ export function AppSidebar({ ...props }) {
         <NavSecondary className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <li className="flex justify-center items-center cursor-pointer  gap-2 p-4">
+        <li className="flex justify-center items-center  gap-2 p-4  rounded-xl ">
           <UserButton afterSignOutUrl="/" showName />
         </li>
       </SidebarFooter>

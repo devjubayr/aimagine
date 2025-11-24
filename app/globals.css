@@ -555,6 +555,11 @@ button:focus-visible {
 .input-field:disabled {
   opacity: 1;
 }
+
+.cl-userButtonOuterIdentifier {
+  color: white !important;
+}
+
 .search-field {
   border-width: 0;
   background: transparent;

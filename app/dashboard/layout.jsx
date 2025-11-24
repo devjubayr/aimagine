@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }) {
         <SiteHeader />
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2 py-10 pb-20 px-5">
-            {children}
+            <div className=" w-full 2xl:w-[1350px] mx-auto">{children}</div>
           </div>
         </div>
       </SidebarInset>

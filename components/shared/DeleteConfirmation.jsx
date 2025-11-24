@@ -15,24 +15,25 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { deleteImage } from "@/actions/image.actions";
-import { Button } from "../ui/button";
+import { TrashIcon } from "lucide-react";
 
 export const DeleteConfirmation = ({ imageId }) => {
   const [isPending, startTransition] = useTransition();
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild className="w-full rounded-full">
-        <Button
+      <AlertDialogTrigger asChild>
+        <button
+          asChild
           type="button"
-          className="button h-11 w-full md:h-[54px] bg-red-500 hover:bg-red-700"
-          variant="destructive"
+          className="cursor-pointer text-red-400"
+          title="Delete"
         >
-          Delete Image
-        </Button>
+          <TrashIcon />
+        </button>
       </AlertDialogTrigger>
 
-      <AlertDialogContent className="flex flex-col gap-10 bg-white">
+      <AlertDialogContent className="flex flex-col gap-10 bg-dark-lighter">
         <AlertDialogHeader>
           <AlertDialogTitle>
             Are you sure you want to delete this image?
