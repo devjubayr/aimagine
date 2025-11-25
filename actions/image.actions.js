@@ -104,7 +104,7 @@ export async function getAllImages({ limit = 9, page = 1 }) {
       secure: true,
     });
 
-    let expression = "folder=imaginify";
+    let expression = "folder=aimagine";
 
     const { resources } = await cloudinary.search
       .expression(expression)

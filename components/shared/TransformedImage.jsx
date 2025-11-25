@@ -19,14 +19,15 @@ const TransformedImage = ({
   const downloadHandler = (e) => {
     e.preventDefault();
 
-    const getCldUrl = getCldImageUrl({
-      width: image?.width,
-      height: image?.height,
-      src: image?.publicId,
-      ...transformationConfig,
-    });
-
-    download(getCldUrl, title);
+    download(
+      getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId,
+        ...transformationConfig,
+      }),
+      title
+    );
   };
 
   return (
@@ -38,9 +39,9 @@ const TransformedImage = ({
 
         {hasDownload && (
           <button
+            type="button"
             className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all disabled:bg-gray-400  duration-200 shadow-lg"
             onClick={downloadHandler}
-            disabled={isTransforming}
           >
             <svg
               className="w-5 h-5"

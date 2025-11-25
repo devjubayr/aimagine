@@ -50,13 +50,12 @@ export default function TransformationForm({
 }) {
   const transformationType = transformationTypes[type];
   const [image, setImage] = useState(data);
-  const [newTransformation, setNewTransformation] = useState(null);
+  const [newTransformation, setNewTransformation] = useState(null > null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isTransforming, setIsTransforming] = useState(false);
   const [transformationConfig, setTransformationConfig] = useState(config);
-  const router = useRouter();
-
   const [_isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const initialValues =
     data && action === "Update"
@@ -68,11 +67,14 @@ export default function TransformationForm({
           publicId: data?.publicId,
         }
       : defaultValues;
+
+  // 1. Define your form.
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues,
   });
 
+  // 2. Define a submit handler.
   async function onSubmit(values) {
     setIsSubmitting(true);
 
@@ -91,7 +93,7 @@ export default function TransformationForm({
         width: image?.width,
         height: image?.height,
         config: transformationConfig,
-        securedUrl: image?.secureURL,
+        secureURL: image?.secureURL,
         transformationURL: transformationUrl,
         aspectRatio: values.aspectRatio,
         prompt: values.prompt,
@@ -109,7 +111,7 @@ export default function TransformationForm({
           if (newImage) {
             form.reset();
             setImage(data);
-            router.push(`/dashboard/transformations/${newImage._id}`);
+            router.push(`/transformations/${newImage._id}`);
           }
         } catch (error) {
           console.log(error);
@@ -142,8 +144,8 @@ export default function TransformationForm({
   const onSelectFieldHandler = (value, onChangeField) => {
     const imageSize = aspectRatioOptions[value];
 
-    setImage((prev) => ({
-      ...prev,
+    setImage((prevState) => ({
+      ...prevState,
       aspectRatio: imageSize.aspectRatio,
       width: imageSize.width,
       height: imageSize.height,
@@ -154,13 +156,13 @@ export default function TransformationForm({
     return onChangeField(value);
   };
 
-  const onInputChangeHandler = (filename, value, type, onChangeField) => {
+  const onInputChangeHandler = (fieldName, value, type, onChangeField) => {
     debounce(() => {
-      setNewTransformation((prev) => ({
-        ...prev,
+      setNewTransformation((prevState) => ({
+        ...prevState,
         [type]: {
-          ...prev?.[type],
-          [filename === "prompt" ? "prompt" : "to"]: value,
+          ...prevState?.[type],
+          [fieldName === "prompt" ? "prompt" : "to"]: value,
         },
       }));
     }, 1000)();
@@ -183,7 +185,7 @@ export default function TransformationForm({
   };
 
   useEffect(() => {
-    if ((image && type === "restore") || type === "removeBackground") {
+    if (image && (type === "restore" || type === "removeBackground")) {
       setNewTransformation(transformationType.config);
     }
   }, [image, transformationType.config, type]);
@@ -196,9 +198,9 @@ export default function TransformationForm({
           control={form.control}
           name="title"
           formLabel="Image title"
-          className="w-full mb-6  "
+          className="w-full mb-6"
           render={({ field }) => (
-            <Input {...field} className="input-field  focus:outline-none " />
+            <Input {...field} className="input-field focus:outline-none" />
           )}
         />
 
@@ -309,7 +311,7 @@ export default function TransformationForm({
             isTransforming={isTransforming}
             setIsTransforming={setIsTransforming}
             transformationConfig={transformationConfig}
-            hasDownload={transformationConfig && true}
+            hasDownload={!!transformationConfig}
           />
         </div>
 

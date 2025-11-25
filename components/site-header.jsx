@@ -28,9 +28,7 @@ export async function SiteHeader() {
               height={20}
               className="size-4 md:size-6 "
             />
-            <h2 className="md:text-xl text-xs text-dark-600">
-              {user.creditBalance}
-            </h2>
+            <p className="md:text-xl text-sm">{user.creditBalance}</p>
           </div>
         </div>
       </div>

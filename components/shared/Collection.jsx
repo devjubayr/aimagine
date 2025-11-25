@@ -35,7 +35,7 @@ export const Collection = ({ images = [], totalPages = 1, page }) => {
   };
 
   return (
-    <div className=" pb-20 bg-dark min-h-screen">
+    <div className=" pb-20 min-h-screen">
       <div>
         {/* IMAGE GRID */}
         {images.length > 0 ? (

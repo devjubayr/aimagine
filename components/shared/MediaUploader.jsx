@@ -41,7 +41,7 @@ const MediaUploader = ({
 
   return (
     <CldUploadWidget
-      uploadPreset="imaginify"
+      uploadPreset="aimagine"
       options={{
         multiple: false,
         resourceType: "image",
@@ -67,9 +67,9 @@ const MediaUploader = ({
                 className="w-full h-auto object-contain"
               />
 
-              {/* Hover Overlay */}
+              {/* Hover Overlay TODO: implement it later  */}
               {!isTransforming && (
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute hidden inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300  items-end p-6">
                   <button
                     onClick={() => open()}
                     className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-200 flex items-center justify-center gap-2 font-medium"

@@ -4,6 +4,7 @@ import { plans } from "@/constants";
 import { SignedIn } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const Plans = async () => {
@@ -14,7 +15,7 @@ const Plans = async () => {
   const user = await getUserById(userId);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto relative z-10">
       <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
         {plans.map((plan, index) => (
           <li
@@ -124,20 +125,24 @@ const Plans = async () => {
             {plan.name === "Free" ? (
               <button
                 disabled
-                className="w-full py-4 rounded-full  border-2 border-border-light bg-dark-lighter text-white font-semibold hover:border-white transition-all duration-200 cursor-default"
+                className="w-full py-4 rounded-full  border-2 border-border-light bg-dark-lighter text-white font-semibold hover:border-white transition-all duration-200 cursor-default disabled:bg-dark-lighter"
               >
                 Current Plan
               </button>
             ) : (
               <SignedIn>
-                <div>
-                  <Checkout
-                    plan={plan.name}
-                    amount={plan.price}
-                    credits={plan.credits}
-                    buyerId={user._id}
-                  />
-                </div>
+                {plan.name !== "Premium Package" ? (
+                  <div>
+                    <Checkout
+                      plan={plan.name}
+                      amount={plan.price}
+                      credits={plan.credits}
+                      buyerId={user._id}
+                    />
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </SignedIn>
             )}
           </li>
@@ -146,7 +151,7 @@ const Plans = async () => {
 
       {/* FAQ Section */}
       <div className=" text-center max-w-3xl mx-auto">
-        <div className="p-8 rounded-2xl border border-border-dark bg-dark-lighter/50">
+        <div className="p-8 rounded-2xl border border-border/30 bg-dark-lighter/50">
           <h3 className="text-2xl font-bold text-white mb-4">
             Need Help Choosing?
           </h3>
@@ -155,9 +160,9 @@ const Plans = async () => {
             find the perfect fit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <Link
               href="/contact"
-              className="px-6 py-3 bg-gradient-to-r from-[#004aad] to-[#039da5] text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-200 flex items-center gap-2"
+              className="px-6 py-3 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 flex items-center gap-2"
             >
               <svg
                 className="w-5 h-5"
@@ -173,7 +178,7 @@ const Plans = async () => {
                 ></path>
               </svg>
               Contact Sales
-            </a>
+            </Link>
             <a
               href="/faq"
               className="px-6 py-3 border-2 border-border-light bg-transparent text-white font-semibold rounded-xl hover:border-white transition-all duration-200 flex items-center gap-2"
