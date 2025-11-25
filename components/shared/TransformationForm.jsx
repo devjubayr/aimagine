@@ -28,7 +28,6 @@ import {
 } from "../ui/select";
 import ActionButtons from "./ActionButtons";
 import { CustomField } from "./CustomField";
-import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import MediaUploader from "./MediaUploader";
 import TransformedImage from "./TransformedImage";
 
@@ -57,6 +56,8 @@ export default function TransformationForm({
   const [_isPending, startTransition] = useTransition();
   const router = useRouter();
 
+  console.log("user");
+
   const initialValues =
     data && action === "Update"
       ? {
@@ -68,13 +69,11 @@ export default function TransformationForm({
         }
       : defaultValues;
 
-  // 1. Define your form.
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: initialValues,
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values) {
     setIsSubmitting(true);
 
@@ -193,7 +192,7 @@ export default function TransformationForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
+        {/* {creditBalance <= Math.abs(creditFee) && <InsufficientCreditsModal />} */}
         <CustomField
           control={form.control}
           name="title"

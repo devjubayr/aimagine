@@ -1,5 +1,6 @@
 import { upcomingFeatures } from "@/constants";
 import Link from "next/link";
+import CTASection from "../shared/CTASection";
 import { Button } from "../ui/button";
 import Heading from "./Heading";
 
@@ -64,23 +65,16 @@ const UpcomingFeatures = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-dark/30 border border-border-dark rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Join the Beta Testing Program
-            </h3>
-            <p className="text-text-gray mb-6 max-w-md mx-auto">
-              Be among the first to test these advanced AI image features and
-              help shape their development
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="xl">
-                Join Beta Program
-              </Button>
-            </div>
+        <CTASection
+          title="Join the Beta Testing Program"
+          description="Be among the first to test these advanced AI image features and help shape their development"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="primary" size="xl">
+              Join Beta Program
+            </Button>
           </div>
-        </div>
+        </CTASection>
       </div>
     </section>
   );

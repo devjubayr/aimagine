@@ -1,7 +1,8 @@
 import { getUserById } from "@/actions/user.actions";
 import Header from "@/components/shared/Header";
+import { InsufficientCreditsModal } from "@/components/shared/InsufficientCreditsModal";
 import TransformationForm from "@/components/shared/TransformationForm";
-import { transformationTypes } from "@/constants";
+import { creditFee, transformationTypes } from "@/constants";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -13,6 +14,11 @@ const AddTransformationTypePage = async ({ params }) => {
   if (!userId) redirect("sign-in");
 
   const user = await getUserById(userId);
+
+  if (user.creditBalance < Math.abs(creditFee)) {
+    return <InsufficientCreditsModal />;
+  }
+
   return (
     <>
       <Header title={transformation.title} subtitle={transformation.subTitle} />

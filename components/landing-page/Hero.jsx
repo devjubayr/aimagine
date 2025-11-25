@@ -1,3 +1,4 @@
+import { connectDB } from "@/lib/connectDB";
 import { ImageModel } from "@/models/image.model";
 import { UserModel } from "@/models/user.model";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
@@ -7,6 +8,7 @@ import { Button } from "../ui/button";
 import CountingProgress from "./CountingProgress";
 
 const Hero = async () => {
+  await connectDB();
   let userCount = await UserModel.countDocuments();
   const images = await ImageModel.countDocuments();
 

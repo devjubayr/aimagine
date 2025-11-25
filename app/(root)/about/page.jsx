@@ -1,5 +1,7 @@
+import CTASection from "@/components/shared/CTASection";
 import PageHeading from "@/components/shared/PageHeading";
 import { aboutFeatured } from "@/constants";
+import { connectDB } from "@/lib/connectDB";
 import { UserModel } from "@/models/user.model";
 import { SignedOut, SignInButton } from "@clerk/nextjs";
 import { Mail, Zap } from "lucide-react";
@@ -12,6 +14,7 @@ const IconBadge = ({ children }) => (
 );
 
 const AboutPage = async () => {
+  await connectDB();
   const users = await UserModel.countDocuments();
 
   const userCount = users * 200; // to show fake user initially
@@ -134,27 +137,17 @@ const AboutPage = async () => {
       </section>
 
       <SignedOut>
-        {/* Final CTA Section */}
-        <section className="py-20 px-6 relative z-10">
-          <div className="max-w-7xl mx-auto text-center">
-            <div className="bg-dark/30 border border-border-dark rounded-3xl p-12 max-w-4xl mx-auto space-y-6">
-              <h2 className="text-4xl font-bold text-white">
-                Ready to Transform Your Workflow?
-              </h2>
-              <p className="text-xl text-text-gray max-w-3xl mx-auto">
-                See how our innovative platform can drive efficiency and growth
-                for your team.
-              </p>
-
-              <SignInButton className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-[1.03] shadow-lg cursor-pointer">
-                <div>
-                  <span>Start Your Free Trial</span>
-                  <Mail className="w-5 h-5" />
-                </div>
-              </SignInButton>
+        <CTASection
+          title="Ready to Transform Your Workflow?"
+          description="See how our innovative platform can drive efficiency and growth for your team."
+        >
+          <SignInButton className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-[1.03] shadow-lg cursor-pointer">
+            <div>
+              <span>Start Your Free Trial</span>
+              <Mail className="w-5 h-5" />
             </div>
-          </div>
-        </section>
+          </SignInButton>
+        </CTASection>
       </SignedOut>
     </div>
   );
