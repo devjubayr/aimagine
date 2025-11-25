@@ -1432,7 +1432,8 @@ button:focus-visible {
 }
 
 .cl-formButtonPrimary {
-  background: linear-gradient(90deg, #004aad, #039da5) !important;
+  background: white !important;
+  color: black !important;
   transition: opacity 0.2s !important;
 }
 

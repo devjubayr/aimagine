@@ -1,35 +1,26 @@
 "use client";
 
-import Logo from "@/components/shared/Logo";
 import { SignIn } from "@clerk/nextjs";
 
 const SignInPage = () => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-dark flex items-center justify-center p-6">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 grid-bg opacity-10 animate-pulse-slow"></div>
-
       {/* Gradient Orbs */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#004aad]/30 to-[#039da5]/30 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-[#5de0e6]/20 to-[#004aad]/20 rounded-full blur-3xl animate-float-delayed"></div>
 
-      {/* Radial Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-dark/50 to-dark"></div>
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Branding & Info */}
         <div className="hidden lg:block space-y-8">
-          {/* Logo */}
-          <Logo />
-
-          {/* Headline */}
           <div className="space-y-6">
             <h1 className="text-6xl font-black leading-tight">
               Welcome Back to
               <br />
               <span className="bg-gradient-to-r from-white to-[#5de0e6] bg-clip-text text-transparent">
-                Your Creative Space
+                AIMAGINE
               </span>
             </h1>
             <p className="text-xl text-text-gray leading-relaxed max-w-xl">
@@ -133,16 +124,11 @@ const SignInPage = () => {
         {/* Right Side - Sign In Form */}
         <div className="flex items-center justify-center">
           <div className="w-full max-w-md">
-            {/* Card Container with Glass Effect */}
             <div className="relative group">
-              {/* Glow Effect */}
               <div className="absolute -inset-0.5  rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
-              {/* Main Card */}
-              <div className="relative bg-dark-lighter border border-border-dark rounded-3xl p-8 backdrop-blur-xl">
-                {/* Header */}
+              <div className="relative bg-dark-lighter/50 border border-border-dark rounded-3xl p-8 backdrop-blur-xl">
                 <div className="text-center mb-8">
-                  {/* Mobile Logo */}
                   <h2 className="text-3xl font-black text-white mb-2">
                     Sign In
                   </h2>

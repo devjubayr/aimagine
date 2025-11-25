@@ -1,7 +1,7 @@
 import PageHeading from "@/components/shared/PageHeading";
 import { aboutFeatured } from "@/constants";
 import { UserModel } from "@/models/user.model";
-import { SignedOut } from "@clerk/nextjs";
+import { SignedOut, SignInButton } from "@clerk/nextjs";
 import { Mail, Zap } from "lucide-react";
 import Link from "next/link";
 
@@ -40,7 +40,10 @@ const AboutPage = async () => {
 
           <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
             {aboutFeatured.map((feat) => (
-              <div className="group p-6 rounded-2xl border bg-dark/40 border-border-dark hover:border-white/40 transition-all duration-300 space-y-4">
+              <div
+                key={feat.title}
+                className="group p-6 relative z-10 rounded-2xl border bg-dark/40 border-border-dark hover:border-white/40 transition-all duration-300 space-y-4"
+              >
                 <IconBadge>
                   <feat.icon className="w-6 h-6 text-white" />
                 </IconBadge>
@@ -132,7 +135,7 @@ const AboutPage = async () => {
 
       <SignedOut>
         {/* Final CTA Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 relative z-10">
           <div className="max-w-7xl mx-auto text-center">
             <div className="bg-dark/30 border border-border-dark rounded-3xl p-12 max-w-4xl mx-auto space-y-6">
               <h2 className="text-4xl font-bold text-white">
@@ -143,13 +146,12 @@ const AboutPage = async () => {
                 for your team.
               </p>
 
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-[1.03] shadow-lg"
-              >
-                <span>Start Your Free Trial</span>
-                <Mail className="w-5 h-5" />
-              </button>
+              <SignInButton className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-[1.03] shadow-lg cursor-pointer">
+                <div>
+                  <span>Start Your Free Trial</span>
+                  <Mail className="w-5 h-5" />
+                </div>
+              </SignInButton>
             </div>
           </div>
         </section>

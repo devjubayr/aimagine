@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
 
-        <div className="full-grid-bg corner-mask fixed inset-0 z-0" />
+        <div className="full-grid-bg corner-mask fixed inset-0" />
       </main>
     </LenisProvider>
   );

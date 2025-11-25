@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 bg-dark-light/80 backdrop-blur-xl border-b border-[#1f1f1f]">
+    <header className="fixed z-99999 top-0 right-0 left-0 bg-dark-light/80 backdrop-blur-xl border-b border-border-dark">
       <div className="mx-auto max-w-7xl px-5">
         <nav className="flex h-20 items-center justify-between">
           <div className="flex gap-10">

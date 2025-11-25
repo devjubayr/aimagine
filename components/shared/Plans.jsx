@@ -1,19 +1,18 @@
 import { getUserById } from "@/actions/user.actions";
 import Checkout from "@/components/shared/CheckOut";
 import { plans } from "@/constants";
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const Plans = async () => {
   const { userId } = await auth();
 
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
-
+  let user;
+  if (userId) {
+    user = await getUserById(userId);
+  }
   return (
     <div className="max-w-7xl mx-auto relative z-10">
       <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
@@ -123,12 +122,14 @@ const Plans = async () => {
 
             {/* CTA Button */}
             {plan.name === "Free" ? (
-              <button
-                disabled
-                className="w-full py-4 rounded-full  border-2 border-border-light bg-dark-lighter text-white font-semibold hover:border-white transition-all duration-200 cursor-default disabled:bg-dark-lighter"
+              <SignInButton
+                disabled={user}
+                className={
+                  "w-full py-4 cursor-pointer rounded-full  border-2 border-border-light bg-dark-lighter text-white font-semibold hover:border-white transition-all duration-200 disabled:cursor-default disabled:bg-dark-lighter"
+                }
               >
-                Current Plan
-              </button>
+                Free Plan
+              </SignInButton>
             ) : (
               <SignedIn>
                 {plan.name !== "Premium Package" ? (
@@ -137,7 +138,7 @@ const Plans = async () => {
                       plan={plan.name}
                       amount={plan.price}
                       credits={plan.credits}
-                      buyerId={user._id}
+                      buyerId={user?._id}
                     />
                   </div>
                 ) : (
@@ -151,7 +152,7 @@ const Plans = async () => {
 
       {/* FAQ Section */}
       <div className=" text-center max-w-3xl mx-auto">
-        <div className="p-8 rounded-2xl border border-border/30 bg-dark-lighter/50">
+        <div className="p-8 rounded-2xl border border-border/30 bg-dark/30">
           <h3 className="text-2xl font-bold text-white mb-4">
             Need Help Choosing?
           </h3>
