@@ -1,24 +1,23 @@
 "use client";
 
-import { UserModel } from "@/models/user.model";
-import { useUser } from "@clerk/nextjs";
+import { getUserById } from "@/actions/user.actions";
+import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const DashboardHeaderCredits = () => {
-  const { user } = useUser();
+  const { userId } = useAuth();
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    (async function () {
-      console.log(user);
+    async function loadCredits() {
+      console.log({ userId });
 
-      const userinfo = await UserModel.findById(user.userId);
+      const user = await getUserById(userId);
+      console.log({ user, userId });
+    }
 
-      console.log(userinfo);
-
-      setBalance(userinfo.creditBalance);
-    })();
+    loadCredits();
   }, []);
 
   return (

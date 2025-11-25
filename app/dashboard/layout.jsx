@@ -1,6 +1,5 @@
 "use client";
 
-import DashboardHeaderCredits from "@/components/shared/DashboardHeaderCredits";
 import DesktopSidebar from "@/components/shared/DesktopSidebar";
 import MobileSidebar from "@/components/shared/MobileSidebar";
 import { navLinks } from "@/constants";
@@ -45,7 +44,7 @@ const DashboardLayout = ({ children }) => {
             </svg>
           </button>
 
-          <DashboardHeaderCredits />
+          {/* <DashboardHeaderCredits /> */}
         </header>
 
         <main className="flex-1 overflow-y-auto bg-dark">

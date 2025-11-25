@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Banner from "./Banner";
 
-const Header = () => {
+const Header = async () => {
   return (
     <div className="fixed z-99999 top-0 right-0 left-0">
       <Banner />
