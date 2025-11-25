@@ -1,9 +1,14 @@
+import { ImageModel } from "@/models/image.model";
+import { UserModel } from "@/models/user.model";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { DotIcon } from "lucide-react";
 import Link from "next/link";
 import CountingProgress from "./CountingProgress";
 
-const Hero = () => {
+const Hero = async () => {
+  let userCount = await UserModel.countDocuments();
+  const images = await ImageModel.countDocuments();
+
   return (
     <section className="relative overflow-hidden bg-dark-light rounded-br-[100px] rounded-bl-[100px] px-6 pt-32 pb-20">
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -56,8 +61,17 @@ const Hero = () => {
 
         {/* Hero Stats */}
         <div className="mx-auto grid max-w-3xl grid-cols-3 gap-8 border-t border-border-dark pt-16">
-          <CountingProgress label="Generated" end={2} other="M+" duration={2} />
-          <CountingProgress label="Active Users" end={500} other="+" />
+          <CountingProgress
+            label="Generated"
+            end={images + 3000}
+            other="+"
+            duration={5}
+          />
+          <CountingProgress
+            label="Active Users"
+            end={userCount + 400}
+            other="+"
+          />
           <CountingProgress label="Uptime SLA" end={99.9} other="%" />
         </div>
       </div>
