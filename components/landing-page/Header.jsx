@@ -1,6 +1,7 @@
 import { rooNavLinks } from "@/constants";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { Button } from "../ui/button";
 import Banner from "./Banner";
 
 const Header = () => {
@@ -21,7 +22,6 @@ const Header = () => {
                 </h2>
               </div>
 
-              {/* Navigation Links */}
               <div className="hidden items-center space-x-8 md:flex">
                 {rooNavLinks.map((link) => (
                   <Link
@@ -35,25 +35,18 @@ const Header = () => {
             </div>
 
             <SignedOut>
-              {/* Auth Buttons */}
               <div className="flex items-center space-x-4">
                 <SignInButton className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
                   Login
                 </SignInButton>
-                <Link
-                  href="/sign-up"
-                  className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
-                >
+                <SignUpButton className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100">
                   Sign Up Free
-                </Link>
+                </SignUpButton>
               </div>
             </SignedOut>
             <SignedIn>
-              <Link
-                href="/dashboard"
-                className="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
-              >
-                Dashboard
+              <Link href="/dashboard">
+                <Button variant="primary">Dashboard</Button>
               </Link>
             </SignedIn>
           </nav>

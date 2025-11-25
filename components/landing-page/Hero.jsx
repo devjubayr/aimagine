@@ -3,6 +3,7 @@ import { UserModel } from "@/models/user.model";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { DotIcon } from "lucide-react";
 import Link from "next/link";
+import { Button } from "../ui/button";
 import CountingProgress from "./CountingProgress";
 
 const Hero = async () => {
@@ -22,7 +23,6 @@ const Hero = async () => {
             </span>
           </div>
 
-          {/* Main Heading */}
           <h1 className="mb-8 text-5xl leading-none font-black tracking-tight md:text-6xl lg:text-7xl">
             Unleash Your Creative Vision
             <br />
@@ -31,13 +31,11 @@ const Hero = async () => {
             </span>
           </h1>
 
-          {/* Subheading */}
           <p className="text-text-gray mx-auto mb-12 max-w-3xl text-xl leading-relaxed md:text-2xl">
             Transform ideas into reality with AI-powered tools. Experience
             seamless content generation with professional quality results.
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <SignedOut>
               <button className="w-full rounded-full cursor-pointer bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-4 text-lg font-semibold text-white shadow-2xl shadow-white/10 transition-all duration-200 hover:opacity-90 sm:w-auto">
@@ -45,17 +43,16 @@ const Hero = async () => {
               </button>
             </SignedOut>
             <SignedIn>
-              <Link
-                href="/dashboard"
-                className="w-full rounded-full cursor-pointer bg-gradient-to-r from-[#004aad] to-[#039da5] px-8 py-4 text-lg font-semibold text-white shadow-2xl shadow-white/10 transition-all duration-200 hover:opacity-90 sm:w-auto"
-              >
-                Go Dashboard
+              <Link href="/dashboard">
+                <Button variant="gradient" size="dgLG">
+                  Go Dashboard
+                </Button>
               </Link>
             </SignedIn>
 
-            <button className="w-full rounded-full border-2 border-border-light bg-transparent px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:border-white sm:w-auto">
-              Watch Demo
-            </button>
+            <Button variant="outline" size="dgLG">
+              Watch Tutorial
+            </Button>
           </div>
         </div>
 

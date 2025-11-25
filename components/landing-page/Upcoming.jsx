@@ -1,5 +1,6 @@
 import { upcomingFeatures } from "@/constants";
 import Link from "next/link";
+import { Button } from "../ui/button";
 import Heading from "./Heading";
 
 const UpcomingFeatures = () => {
@@ -74,12 +75,9 @@ const UpcomingFeatures = () => {
               help shape their development
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-opacity">
+              <Button variant="primary" size="xl">
                 Join Beta Program
-              </button>
-              <button className="px-6 py-3 border border-border-dark text-white font-semibold rounded-xl hover:border-white transition-colors">
-                View Technical Docs
-              </button>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 "use client";
 
+import DashboardHeaderCredits from "@/components/shared/DashboardHeaderCredits";
 import DesktopSidebar from "@/components/shared/DesktopSidebar";
 import MobileSidebar from "@/components/shared/MobileSidebar";
 import { navLinks } from "@/constants";
-import Image from "next/image";
 import { useState } from "react";
 
 const DashboardLayout = ({ children }) => {
@@ -45,20 +45,7 @@ const DashboardLayout = ({ children }) => {
             </svg>
           </button>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-3">
-            {/* User Menu - Desktop */}
-            <button className=" flex items-center gap-2 px-3 py-2 bg-dark rounded-xl transition-colors">
-              <Image
-                src="/assets/icons/coins.svg"
-                alt="coins"
-                width={20}
-                height={20}
-                className="size-4 md:size-6"
-              />
-              {500}
-            </button>
-          </div>
+          <DashboardHeaderCredits />
         </header>
 
         <main className="flex-1 overflow-y-auto bg-dark">

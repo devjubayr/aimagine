@@ -231,7 +231,7 @@ export const rooNavLinks = [
 export const features = [
   {
     id: 1,
-    icon: <IconRestore className="group-hover:text-black" />,
+    icon: <IconRestore />,
     title: "AI Image Restoration",
     description:
       "Revive old blurry photos. Enhance resolution quality. Fix pixelation issues perfectly.",
@@ -240,7 +240,7 @@ export const features = [
   },
   {
     id: 2,
-    icon: <Expand className="group-hover:text-black" />,
+    icon: <Expand />,
     title: "Generative Fill & Expand",
     description:
       "Expand image borders smartly. Fill missing areas seamlessly. AI content generation.",
@@ -249,7 +249,7 @@ export const features = [
   },
   {
     id: 3,
-    icon: <IconTagFilled className="group-hover:text-black" />,
+    icon: <IconTagFilled />,
     title: "Smart Object Removal",
     description:
       "Remove unwanted objects easily. Erase people perfectly. Reconstruct background naturally.",
@@ -258,7 +258,7 @@ export const features = [
   },
   {
     id: 4,
-    icon: <ImageIcon className="group-hover:text-black" />,
+    icon: <ImageIcon />,
     title: "Background Removal",
     description:
       "Perfect cutouts instantly. Preserve fine details. Maintain image quality always.",

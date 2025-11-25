@@ -1,5 +1,6 @@
 import { contactSocialLinks } from "@/constants";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
@@ -31,11 +32,9 @@ const Footer = () => {
                   <input
                     type="email"
                     placeholder="your@email.com"
-                    className="flex-1 rounded-lg border border-border-light bg-dark px-4 py-3 text-sm placeholder:text-text-gray focus:border-white focus:outline-none transition-colors"
+                    className="flex-1 rounded-lg border border-border-light bg-dark px-4  text-sm placeholder:text-text-gray focus:border-white focus:outline-none transition-colors"
                   />
-                  <button className="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-all hover:scale-105 hover:bg-gray-100">
-                    Subscribe
-                  </button>
+                  <Button variant="primary">Subscribe</Button>
                 </div>
               </div>
 

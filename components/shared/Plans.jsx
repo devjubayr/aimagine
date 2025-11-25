@@ -3,8 +3,10 @@ import Checkout from "@/components/shared/CheckOut";
 import { plans } from "@/constants";
 import { SignedIn, SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import { CircleQuestionMarkIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Plans = async () => {
   const { userId } = await auth();
@@ -125,7 +127,7 @@ const Plans = async () => {
               <SignInButton
                 disabled={user}
                 className={
-                  "w-full py-4 cursor-pointer rounded-full  border-2 border-border-light bg-dark-lighter text-white font-semibold hover:border-white transition-all duration-200 disabled:cursor-default disabled:bg-dark-lighter"
+                  "rounded-full border-2 border-border-light bg-transparent font-semibold text-white transition-all duration-200 hover:border-white  py-3 text-lg  w-full"
                 }
               >
                 Free Plan
@@ -150,7 +152,7 @@ const Plans = async () => {
         ))}
       </ul>
 
-      {/* FAQ Section */}
+      {/* FAQ  */}
       <div className=" text-center max-w-3xl mx-auto">
         <div className="p-8 rounded-2xl border border-border/30 bg-dark/30">
           <h3 className="text-2xl font-bold text-white mb-4">
@@ -161,44 +163,18 @@ const Plans = async () => {
             find the perfect fit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-6 py-3 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 flex items-center gap-2"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                ></path>
-              </svg>
-              Contact Sales
+            <Link href="/contact">
+              <Button variant="primary" className="flex" size="lg">
+                <MailIcon size="18" />
+                Contact Sales
+              </Button>
             </Link>
-            <a
-              href="/faq"
-              className="px-6 py-3 border-2 border-border-light bg-transparent text-white font-semibold rounded-xl hover:border-white transition-all duration-200 flex items-center gap-2"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              View FAQ
-            </a>
+            <Link href="#">
+              <Button variant="outline" size="lg">
+                <CircleQuestionMarkIcon size="18" />
+                View FAQ
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
