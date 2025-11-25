@@ -1,11 +1,16 @@
+import CreditsIcon from "@/components/ui/CreditsIcon";
 import EmailIcon from "@/components/ui/EmailIcon";
 import GithubIcon from "@/components/ui/GithubIcon";
+import HomeIcon from "@/components/ui/HomeIcon";
 import LinkedInIcon from "@/components/ui/LinkedInIcon";
+import ProfileIcon from "@/components/ui/ProfileIcon";
+import TransformationIcon from "@/components/ui/TransformationIcon";
 import XIcon from "@/components/ui/XIcon";
 import { IconRestore, IconTagFilled } from "@tabler/icons-react";
 import {
   Expand,
   ImageIcon,
+  ImagesIcon,
   LocateIcon,
   PhoneCall,
   Target,
@@ -19,42 +24,37 @@ export const navLinks = [
   {
     label: "Home",
     route: "/dashboard",
-    icon: "/assets/icons/home.svg",
+    icon: HomeIcon,
   },
   {
     label: "Image Restore",
     route: "/dashboard/transformations/add/restore",
-    icon: "/assets/icons/image.svg",
+    icon: TransformationIcon,
   },
   {
     label: "Generative Fill",
     route: "/dashboard/transformations/add/fill",
-    icon: "/assets/icons/stars.svg",
+    icon: TransformationIcon,
   },
   {
     label: "Object Remove",
     route: "/dashboard/transformations/add/remove",
-    icon: "/assets/icons/scan.svg",
+    icon: TransformationIcon,
   },
-  // {
-  //   label: "Object Recolor",
-  //   route: "/dashboard/transformations/add/recolor",
-  //   icon: "/assets/icons/filter.svg",
-  // },
   {
     label: "Background Remove",
     route: "/dashboard/transformations/add/removeBackground",
-    icon: "/assets/icons/camera.svg",
+    icon: ImagesIcon,
   },
   {
     label: "Profile",
     route: "/dashboard/profile",
-    icon: "/assets/icons/profile.svg",
+    icon: ProfileIcon,
   },
   {
     label: "Buy Credits",
     route: "/dashboard/credits",
-    icon: "/assets/icons/bag.svg",
+    icon: CreditsIcon,
   },
 ];
 

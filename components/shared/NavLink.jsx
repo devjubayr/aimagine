@@ -1,28 +1,32 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const NavLink = ({ item, isActive }) => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const NavLink = ({ item, ...props }) => {
+  const pathname = usePathname();
+  const isActive = pathname === item.route;
   return (
-    <li
-      key={item.route}
-      className={`group flex justify-center w-full whitespace-nowrap  bg-cover transition-all hover:bg-purple-100 hover:shadow-inner p-16-semibold ${
-        isActive ? "border-l-4 border-l-white! text-white" : "text-white/90"
+    <Link
+      key={item.label}
+      href={item.route}
+      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-text-gray  transition-all duration-200 group ${
+        isActive ? "bg-dark text-white" : "hover:text-white hover:bg-dark"
       }`}
+      {...props}
     >
-      <Link
-        className="flex size-full gap-4 p-3 p-16-semibold"
-        href={item.route}
-      >
-        <Image
-          src={item.icon}
-          alt="logo"
-          width={24}
-          height={24}
-          className={`${isActive ? "brightness-200" : ""}`}
-        />
-        {item.label}
-      </Link>
-    </li>
+      <div className="flex items-center gap-3">
+        <span className="group-hover:scale-110 transition-transform">
+          <item.icon />
+        </span>
+        <span className="font-medium">{item.label}</span>
+      </div>
+      {item.badge && (
+        <span className="px-2 py-1 bg-gradient-to-r from-[#004aad] to-[#5de0e6] text-white text-xs font-bold rounded-full">
+          {item.badge}
+        </span>
+      )}
+    </Link>
   );
 };
 export default NavLink;

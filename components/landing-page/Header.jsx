@@ -1,5 +1,5 @@
 import { rooNavLinks } from "@/constants";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Banner from "./Banner";
 
@@ -37,9 +37,9 @@ const Header = () => {
             <SignedOut>
               {/* Auth Buttons */}
               <div className="flex items-center space-x-4">
-                <button className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
+                <SignInButton className="hidden text-sm font-medium text-text-gray transition-colors hover:text-white sm:block">
                   Login
-                </button>
+                </SignInButton>
                 <Link
                   href="/sign-up"
                   className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-gray-100"
