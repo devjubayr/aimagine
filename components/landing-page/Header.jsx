@@ -25,6 +25,7 @@ const Header = () => {
               <div className="hidden items-center space-x-8 md:flex">
                 {rooNavLinks.map((link) => (
                   <Link
+                    key={link.route}
                     href={link.route}
                     className="text-text-gray text-sm font-medium uppercase transition-colors hover:text-white"
                   >
@@ -46,7 +47,9 @@ const Header = () => {
             </SignedOut>
             <SignedIn>
               <Link href="/dashboard">
-                <Button variant="primary">Dashboard</Button>
+                <Button variant="primary" size="lg">
+                  Dashboard
+                </Button>
               </Link>
             </SignedIn>
           </nav>

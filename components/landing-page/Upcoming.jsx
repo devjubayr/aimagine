@@ -14,8 +14,8 @@ const UpcomingFeatures = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <Heading
-          title1="Next Generation"
-          title2="AI Image Tools"
+          title1="What We are"
+          title2="Working on?"
           description="Advanced AI-powered image transformation features currently in
             development to expand your creative possibilities"
         />

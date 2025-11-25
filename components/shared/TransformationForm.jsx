@@ -56,8 +56,6 @@ export default function TransformationForm({
   const [_isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  console.log("user");
-
   const initialValues =
     data && action === "Update"
       ? {

@@ -34,7 +34,6 @@ const Profile = async ({ searchParams }) => {
             <h2 className="h2-bold text-dark-600">{user.creditBalance}</h2>
           </div>
         </div>
-
         <div className="profile-image-manipulation bg-dark-light border">
           <p className="p-14-medium md:p-16-medium">IMAGE MANIPULATION DONE</p>
           <div className="mt-4 flex items-center gap-4">

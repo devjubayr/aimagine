@@ -3,10 +3,18 @@
 import { LucideMessageCircleWarning, XIcon } from "lucide-react";
 import { useState } from "react";
 
+const alreadyClosed = localStorage.getItem("banner");
+
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  if (!isVisible) return null;
+  if (!isVisible || alreadyClosed) return null;
+
+  const handleClose = () => {
+    setIsVisible(false);
+
+    localStorage.setItem("banner", true);
+  };
 
   return (
     <div className=" bg-blue-600 border-b-2 border-orange-600/50 shadow-lg ">
@@ -26,7 +34,7 @@ const Banner = () => {
                 </span>
                 <span className="hidden sm:inline text-white/80">—</span>
                 <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                  This site is still under development. You may encounter UI
+                  Application is still under development. You may encounter UI
                   issues, or unexpected behavior. But I hope you won't get any
                   of these.
                 </p>
@@ -36,7 +44,7 @@ const Banner = () => {
 
           <div className="flex items-center gap-2 flex-0">
             <button
-              onClick={() => setIsVisible(false)}
+              onClick={handleClose}
               className="p-1.5 hover:bg-white/20 rounded-lg transition-colors duration-200 group"
               aria-label="Close banner"
             >

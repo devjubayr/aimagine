@@ -21,23 +21,11 @@ const NotFound = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Link href="/">
+          <Link href="/dashboard">
             <Button variant="primary" size="dgLG" className="rounded-full">
               Back to Home
             </Button>
           </Link>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-border-dark">
-          <p className="text-sm text-text-gray">
-            Need help?{" "}
-            <Link
-              href="/contact"
-              className="text-[#5de0e6] hover:text-white transition-colors font-medium"
-            >
-              Contact Support
-            </Link>
-          </p>
         </div>
       </div>
     </div>

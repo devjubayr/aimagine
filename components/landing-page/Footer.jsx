@@ -34,7 +34,9 @@ const Footer = () => {
                     placeholder="your@email.com"
                     className="flex-1 rounded-lg border border-border-light bg-dark px-4  text-sm placeholder:text-text-gray focus:border-white focus:outline-none transition-colors"
                   />
-                  <Button variant="primary">Subscribe</Button>
+                  <Button variant="primary" size="lg">
+                    Subscribe
+                  </Button>
                 </div>
               </div>
 
@@ -47,6 +49,7 @@ const Footer = () => {
                 <div className="flex gap-3">
                   {contactSocialLinks.map((item) => (
                     <Link
+                      key={item.route}
                       href={item.route}
                       className="w-12 h-12 rounded-xl border border-border-dark bg-dark/30 hover:border-white hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
                     >

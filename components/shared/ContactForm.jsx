@@ -1,3 +1,5 @@
+import { Button } from "../ui/button";
+
 const ContactForm = () => {
   return (
     <div className="relative z-10">
@@ -85,10 +87,7 @@ const ContactForm = () => {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full px-8 py-4 bg-white text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-          >
+          <Button type="submit" variant="primary" size="xl" className="w-full">
             <span>Send Message</span>
             <svg
               className="w-5 h-5"
@@ -103,7 +102,7 @@ const ContactForm = () => {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               ></path>
             </svg>
-          </button>
+          </Button>
         </form>
       </div>
     </div>
