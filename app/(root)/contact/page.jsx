@@ -20,7 +20,6 @@ const ContactPage = () => {
       <section className="py-20 px-6 bg-dark-light relative  ">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Side - Contact Information */}
             <div className="space-y-8 relative z-10">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-4">
@@ -70,6 +69,7 @@ const ContactPage = () => {
                 <div className="flex gap-3">
                   {contactSocialLinks.map((item) => (
                     <Link
+                      key={item.route}
                       href={item.route}
                       className="w-12 h-12 rounded-xl border border-border-dark bg-dark/30 hover:border-white hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
                     >

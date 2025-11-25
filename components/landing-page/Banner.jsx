@@ -1,20 +1,26 @@
 "use client";
 
 import { LucideMessageCircleWarning, XIcon } from "lucide-react";
-import { useState } from "react";
-
-const alreadyClosed = localStorage.getItem("banner");
+import { useEffect, useState } from "react";
 
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  if (!isVisible || alreadyClosed) return null;
+  if (!isVisible) return null;
 
   const handleClose = () => {
     setIsVisible(false);
 
     localStorage.setItem("banner", true);
   };
+
+  useEffect(() => {
+    const alreadyClosed = localStorage.getItem("banner");
+
+    if (alreadyClosed) {
+      setIsVisible(false);
+    }
+  }, []);
 
   return (
     <div className=" bg-blue-600 border-b-2 border-orange-600/50 shadow-lg ">

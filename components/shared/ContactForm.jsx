@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import RightArrowIcon from "../ui/RightArrowIcon";
 
 const ContactForm = () => {
   return (
@@ -89,19 +90,7 @@ const ContactForm = () => {
           {/* Submit Button */}
           <Button type="submit" variant="primary" size="xl" className="w-full">
             <span>Send Message</span>
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
+            <RightArrowIcon />
           </Button>
         </form>
       </div>
