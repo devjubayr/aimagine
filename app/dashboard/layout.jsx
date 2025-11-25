@@ -23,7 +23,6 @@ const DashboardLayout = ({ children }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="h-20 bg-dark-lighter border-b border-border-dark flex items-center justify-between lg:justify-end px-6">
           {/* Mobile Menu Button */}

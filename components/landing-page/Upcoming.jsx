@@ -1,28 +1,8 @@
+import { upcomingFeatures } from "@/constants";
 import Link from "next/link";
 import Heading from "./Heading";
 
 const UpcomingFeatures = () => {
-  const upcomingFeatures = [
-    {
-      id: 1,
-      title: "AI Image Recolor",
-      description:
-        "Intelligent color transformation for images. Change color schemes while preserving details and textures perfectly.",
-    },
-    {
-      id: 2,
-      title: "Custom Image Generation",
-      description:
-        "Create unique images from text prompts. Generate custom visuals tailored to your specific needs and style preferences.",
-    },
-    {
-      id: 3,
-      title: "HD Quality Enhancement",
-      description:
-        "Transform low-resolution images into high-definition masterpieces. AI-powered upscaling with detail reconstruction.",
-    },
-  ];
-
   return (
     <section id="upcoming" className="relative py-32 px-6 overflow-hidden">
       {/* Background */}

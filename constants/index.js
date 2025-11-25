@@ -338,3 +338,53 @@ export const contactSocialLinks = [
     route: "https://github.com/devjubayr",
   },
 ];
+export const upcomingFeatures = [
+  {
+    id: 1,
+    title: "AI Image Recolor",
+    description:
+      "Intelligent color transformation for images. Change color schemes while preserving details and textures perfectly.",
+  },
+  {
+    id: 2,
+    title: "Custom Image Generation",
+    description:
+      "Create unique images from text prompts. Generate custom visuals tailored to your specific needs and style preferences.",
+  },
+  {
+    id: 3,
+    title: "HD Quality Enhancement",
+    description:
+      "Transform low-resolution images into high-definition masterpieces. AI-powered upscaling with detail reconstruction.",
+  },
+  {
+    id: 4,
+    title: "AI Assistant Helper",
+    description:
+      "A smart, context-aware AI assistant to guide you through features and offer creative suggestions easily.",
+  },
+  {
+    id: 5,
+    title: "Enhanced Dark/Light Mode",
+    description:
+      "Comprehensive styling and theme options for a seamless visual experience in both light and dark modes.",
+  },
+  {
+    id: 6,
+    title: "User Feedback & Rating System",
+    description:
+      "Built-in feature to easily collect valuable user ratings and structured feedback for continuous improvement.",
+  },
+  {
+    id: 7,
+    title: "Detailed Feature Ratings",
+    description:
+      "Rate individual tools and features to give us precise insight into performance and user satisfaction.",
+  },
+  {
+    id: 8,
+    title: "Full Cross-Platform Support",
+    description:
+      "Seamless experience across all major platforms, including web, desktop, and mobile operating systems.",
+  },
+];

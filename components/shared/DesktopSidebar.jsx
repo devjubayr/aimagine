@@ -1,18 +1,14 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import Logo from "./Logo";
 import NavLink from "./NavLink";
 
 const DesktopSidebar = ({ topLinks, bottomLinks }) => {
   return (
     <aside className="hidden lg:flex lg:flex-col w-72 bg-dark-lighter border-r border-border-dark">
-      <div className="h-20 flex items-center px-6 border-b border-border-dark">
+      <div className="h-20 flex items-center px-6 border-b ">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#004aad] to-[#5de0e6] flex items-center justify-center">
-            <span className="text-xl font-black text-white">A</span>
-          </div>
-          <div className="text-xl font-black">
-            <span className="text-white">AIMAGINE</span>
-          </div>
+          <Logo />
         </Link>
       </div>
 

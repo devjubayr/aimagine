@@ -4,9 +4,7 @@ const ContactForm = () => {
       <div className="relative bg-dark/30 border border-border-dark rounded-3xl p-8">
         <h2 className="text-2xl font-bold text-white mb-6">
           Send us a Message{" "}
-          <span className="text-amber-500">
-            (Form is not functional yet...)
-          </span>
+          <span className="text-amber-500">(Working on it...)</span>
         </h2>
 
         <form className="space-y-6">
