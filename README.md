@@ -94,7 +94,50 @@ The most significant technical challenge was implementing robust synchronization
     npm run dev
     ```
 
-    ***
+---
+
+### Project Structure
+
+```
+aimagine/
+|---app/
+│   ├── (auth)/
+│   │   ├── sign-in/
+│   │   │   └── [[...sign-in]]/
+│   │   └── sign-up/
+│   │       └── [[...sign-up]]/
+│   ├── (root)/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   └── plans/
+│   ├── api/
+│   │   └── webhooks/
+│   │       ├── clerk/
+│   │       └── stripe/
+│   ├── dashboard/
+│   │   ├── credits/
+│   │   ├── profile/
+│   │   └── transformations/
+│   │       ├── [id]/
+│   │       │   └── update/
+│   │       └── add/
+│   │           └── [type]/
+├── components/
+│   ├── landing-page/
+│   ├── shared/
+│   └── ui/
+└── utils
+├── actions/
+├── constants/
+├── hooks/
+├── lib/
+├── models/
+├── providers/
+├── public/
+
+```
+
+---
 
 ### User Guide
 
