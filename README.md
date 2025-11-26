@@ -1,17 +1,18 @@
-![Project Status](https://img.shields.io/badge/Status-80%25%20Complete-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Next.js](https://img.shields.io/badge/Next.js-15.5.6-000000) ![React](https://img.shields.io/badge/React-19.1.0-61DAFB)![Mongoose](https://img.shields.io/badge/Mongoose-8.20.0-61DAFB)![cloudinary](https://img.shields.io/badge/Cloudinary-6.17.5-61DAFB)
 ![Hero Section](/public/hero.png "AIMAGINE Landing Page - Showcasing the main features and value proposition")
+![Project Status](https://img.shields.io/badge/Status-80%25%20Complete-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Next.js](https://img.shields.io/badge/Next.js-15.5.6-000000) ![React](https://img.shields.io/badge/React-19.1.0-61DAFB)![Mongoose](https://img.shields.io/badge/Mongoose-8.20.0-61DAFB)![cloudinary](https://img.shields.io/badge/Cloudinary-6.17.5-61DAFB)
 
 ## AIMAGINE | AI-Powered Image Manipulation Suite
 
-AIMAGINE is a cutting-edge SaaS platform that leverages artificial intelligence to provide professional-grade image manipulation tools. Our suite goes beyond basic editing, offering advanced transformations while ensuring quality preservation and professional results.
+AIMAGINE is a cutting-edge SaaS platform that leverages artificial intelligence to provide professional-grade image manipulation tools. Our suite goes beyond basic and advanced transformations while ensuring quality preservation and professional results.
 
 #### _Key Features_
 
-- **AI-Powered Transformations** - Advanced image manipulation using machine learning
-- **Quality Preservation** - Maintain image integrity through all transformations
+- **AI-Powered Transformations** - Advanced image manipulation
+- **Quality Restore** - Restore image quality and provide hight quality
 - **User-Friendly Interface** - Intuitive dashboard and tools
 - **Secure Authentication** - Powered by Clerk for seamless user management
 - **Payment Integration** - Stripe-powered subscription model
+- **Design** - TailwindCSS-powered component styles
 
 ### Tech Stack
 
@@ -53,8 +54,8 @@ The most significant technical challenge was implementing robust synchronization
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/devjubayr/aimagine.com.git
-    cd aimagine.com
+    git clone https://github.com/devjubayr/aimagine.git
+    cd aimagine
     ```
 2.  **Install dependencies**
     ```bash
@@ -64,7 +65,6 @@ The most significant technical challenge was implementing robust synchronization
     Create a .env.local file with:
 
          ```
-
         NEXT_SERVER_URL=https://codi-chubbiest-densimetrically.ngrok-free.dev
         MONGODB_URI=mongodb+srv://user:pass@cluster0.idxkyye.mongodb.net/?appName=Cluster0
 
@@ -86,7 +86,6 @@ The most significant technical challenge was implementing robust synchronization
         NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test
         STRIPE_SECRET_KEY=sk_test
         STRIPE_WEBHOOK_SECRET=whsec
-
          ```
 
 4.  **Run development server**
@@ -105,7 +104,7 @@ Quick Start Tutorial:
 
 2. **Access Dashboard:** Navigate to the dashboard to view all available transformation tools.
 
-3. **Upload Image:** Click the upload icon in the sidebar and select an image from your device.
+3. **Upload Image:** Click the upload and select an image from your device or external sites.
 
 4. **Configure Transformation**. Fill in the transformation parameters and additional fields as needed.
 
