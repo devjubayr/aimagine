@@ -7,7 +7,7 @@ const DesktopSidebar = ({ topLinks, bottomLinks }) => {
   return (
     <aside className="hidden lg:flex lg:flex-col w-72 bg-dark-lighter border-r border-border-dark">
       <div className="h-20 flex items-center px-6 border-b ">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 brand-logo">
           <Logo />
         </Link>
       </div>
@@ -28,7 +28,7 @@ const DesktopSidebar = ({ topLinks, bottomLinks }) => {
         </div>
       </nav>
 
-      <div className="p-4 border-t border-border-dark ">
+      <div className="p-4 border-t border-border-dark manage-account">
         <li className="flex justify-center items-center cursor-pointer  gap-2 p-4">
           <UserButton afterSignOutUrl="/" showName />
         </li>

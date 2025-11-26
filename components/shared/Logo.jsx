@@ -5,7 +5,7 @@ const Logo = () => {
         <h2 className="flex text-xl capitalize">
           <span className="">a</span>
           <span className="bg-linear-to-tl from-blue-primary to-blue-secondary bg-clip-text text-transparent uppercase">
-            imagin
+            imagine
           </span>
         </h2>
         <p className=" capitalize text-nowrap text-[12px] font-medium opacity-70 -mt-[3px]">

@@ -12,7 +12,9 @@ const NavLink = ({ item, ...props }) => {
       href={item.route}
       className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-text-gray  transition-all duration-200 group ${
         isActive ? "bg-dark text-white" : "hover:text-white hover:bg-dark"
-      }`}
+      }
+      ${item.tourClass}
+        `}
       {...props}
     >
       <div className="flex items-center gap-3">

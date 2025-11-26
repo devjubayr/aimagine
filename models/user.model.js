@@ -41,6 +41,10 @@ const UserScheme = new mongoose.Schema({
     type: Number,
     default: 5,
   },
+  hasTour: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export const UserModel =

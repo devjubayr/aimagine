@@ -83,3 +83,18 @@ export const updateCredits = async (userId, creditAmount) => {
     handleError(error);
   }
 };
+
+export const tourDone = async (userId) => {
+  try {
+    await connectDB();
+    const updated = await UserModel.findOneAndUpdate(
+      { clerkId: userId },
+      { $set: { hasTour: true } },
+      { upsert: true, new: true }
+    );
+
+    return JSON.parse(JSON.stringify(updated));
+  } catch (error) {
+    handleError(error);
+  }
+};

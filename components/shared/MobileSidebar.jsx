@@ -1,5 +1,3 @@
-"use client";
-
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -7,8 +5,8 @@ import Logo from "./Logo";
 const MobileSidebar = ({
   bottomLinks,
   topLinks,
-  isSidebarOpen,
   setIsSidebarOpen,
+  isSidebarOpen,
 }) => {
   return (
     <>

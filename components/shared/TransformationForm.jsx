@@ -19,6 +19,7 @@ import { getCldImageUrl } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -30,7 +31,6 @@ import ActionButtons from "./ActionButtons";
 import { CustomField } from "./CustomField";
 import MediaUploader from "./MediaUploader";
 import TransformedImage from "./TransformedImage";
-
 const formSchema = z.object({
   title: z.string(),
   aspectRatio: z.string().optional(),
@@ -90,7 +90,7 @@ export default function TransformationForm({
         width: image?.width,
         height: image?.height,
         config: transformationConfig,
-        secureURL: image?.secureURL,
+        securedUrl: image?.secureURL,
         transformationURL: transformationUrl,
         aspectRatio: values.aspectRatio,
         prompt: values.prompt,
@@ -108,7 +108,7 @@ export default function TransformationForm({
           if (newImage) {
             form.reset();
             setImage(data);
-            router.push(`/transformations/${newImage._id}`);
+            router.push(`/dashboard/transformations/${newImage._id}`);
           }
         } catch (error) {
           console.log(error);
@@ -168,6 +168,14 @@ export default function TransformationForm({
   };
 
   const onTransformHandler = async () => {
+    let values = form.getValues();
+
+    if (!values.title) {
+      return toast("Title is required", {
+        duration: 5000,
+        className: "error-toast",
+      });
+    }
     setIsTransforming(true);
 
     setTransformationConfig(

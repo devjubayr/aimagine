@@ -4,6 +4,7 @@ import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 // 1. Import the dark theme from Clerk
 import { dark } from "@clerk/themes";
+import { Toaster } from "sonner";
 
 const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -13,26 +14,26 @@ const IBMPlex = IBM_Plex_Sans({
 
 export const metadata = {
   title:
-    "AIMAGIN - Instant AI BG Filler | Image Generator | Image Quality Restore | BG Remove | Pro Quality",
+    "AIMAGINE - Instant AI BG Filler | Image Generator | Image Quality Restore | BG Remove | Pro Quality",
   description:
-    "Unleash your creative vision with imagino by AI. Freemium product. Professional quality, privacy-first Image Filler, Restore Image Quality and background removal powered by advanced AI technology.",
+    "Unleash your creative vision with AIMAGINE by AI. Freemium product. Professional quality, privacy-first Image Filler, Restore Image Quality and background removal powered by advanced AI technology.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    // 2. Add baseTheme: dark to ClerkProvider to strictly enforce dark theme on Clerk UI
     <ClerkProvider
       appearance={{
-        baseTheme: dark, // <--- Add this line
+        baseTheme: dark,
         variables: {
           colorPrimary: "#000000",
         },
       }}
     >
-      {/* 3. Add className="dark" to <html> tag to enforce dark theme on the rest of your app (Tailwind) */}
       <html lang="en" className="dark">
         <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
           {children}
+
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

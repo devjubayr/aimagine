@@ -25,36 +25,43 @@ export const navLinks = [
     label: "Home",
     route: "/dashboard",
     icon: HomeIcon,
+    tourClass: "home-page",
   },
   {
     label: "Image Restore",
     route: "/dashboard/transformations/add/restore",
     icon: TransformationIcon,
+    tourClass: "image-restore-page",
   },
   {
     label: "Generative Fill",
     route: "/dashboard/transformations/add/fill",
     icon: TransformationIcon,
+    tourClass: "generative-fill-page",
   },
   {
     label: "Object Remove",
     route: "/dashboard/transformations/add/remove",
     icon: TransformationIcon,
+    tourClass: "object-remove-page",
   },
   {
     label: "Background Remove",
     route: "/dashboard/transformations/add/removeBackground",
     icon: ImagesIcon,
+    tourClass: "background-remove-page",
   },
   {
     label: "Profile",
     route: "/dashboard/profile",
     icon: ProfileIcon,
+    tourClass: "profile-page",
   },
   {
     label: "Buy Credits",
     route: "/dashboard/credits",
     icon: CreditsIcon,
+    tourClass: "buy-credits-page",
   },
 ];
 
