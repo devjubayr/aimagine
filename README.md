@@ -1,7 +1,7 @@
 ![Hero Section](/public/hero.png "AIMAGINE Landing Page - Showcasing the main features and value proposition")
 ![Project Status](https://img.shields.io/badge/Status-80%25%20Complete-yellow) ![License](https://img.shields.io/badge/License-MIT-blue) ![Next.js](https://img.shields.io/badge/Next.js-15.5.6-000000) ![React](https://img.shields.io/badge/React-19.1.0-61DAFB)![Mongoose](https://img.shields.io/badge/Mongoose-8.20.0-61DAFB)![cloudinary](https://img.shields.io/badge/Cloudinary-6.17.5-61DAFB)
 
-## AIMAGINE | AI-Powered Image Manipulation Suite
+## AIMAGINE | Comprehensive SAAS product to manage and manipulate Images
 
 AIMAGINE is a cutting-edge SaaS platform that leverages artificial intelligence to provide professional-grade image manipulation tools. Our suite goes beyond basic and advanced transformations while ensuring quality preservation and professional results.
 
