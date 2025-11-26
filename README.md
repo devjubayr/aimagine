@@ -3,7 +3,7 @@
 
 ## AIMAGINE | Comprehensive SAAS product to manage and manipulate Images
 
-AIMAGINE is a cutting-edge SaaS platform that leverages artificial intelligence to provide professional-grade image manipulation tools. Our suite goes beyond basic and advanced transformations while ensuring quality preservation and professional results.
+AIMAGINE is a cutting-edge SaaS platform that provide professional-grade image manipulation tools. Our suite goes beyond basic and advanced transformations while ensuring quality preservation and professional results.
 
 #### _Key Features_
 
