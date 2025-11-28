@@ -1,6 +1,7 @@
 "use client";
 
 import { SignUp } from "@clerk/nextjs";
+import Link from 'next/link';
 
 const SignInPage = () => {
   return (
@@ -142,12 +143,12 @@ const SignInPage = () => {
                 <div className="mt-8 text-center">
                   <p className="text-sm text-text-gray">
                     Already have an account?{" "}
-                    <a
+                    <Link
                       href="/sign-in"
                       className="text-white hover:underline font-semibold transition-colors"
                     >
                       Sign in
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
